@@ -21,7 +21,7 @@ let mapleader = ","
 nmap <leader>w :w!<cr>
 
 "escape remap
-inoremap fd <esc>
+inoremap jk <esc>
 
 """""""""""""""""""""""""""""""""""""""""
 " User Interface
@@ -92,11 +92,6 @@ set relativenumber
 set encoding=utf8
 set ffs=unix,dos,mac
 
-
-"""""""""""""""""""""""""""""""""""""""""
-" visual mode related
-"""""""""""""""""""""""""""""""""""""""""
-vnoremap fd <esc> 
 
 
 """""""""""""""""""""""""""""""""""""""""

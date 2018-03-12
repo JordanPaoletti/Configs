@@ -1,0 +1,11 @@
+The purpose of this set up is to separate the vimrc
+into different components for easier maintanance.
+
+Each file contains cpp directives in order to allow
+different versions of the vimrc to be created
+(eg. ideavimrc, with or without plugins)
+
+doc will contain all the includes, so the file can
+be created by running
+
+cpp -P -w -traditional-cpp doc out.vim

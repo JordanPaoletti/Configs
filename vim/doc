@@ -1,0 +1,15 @@
+#include "general.vim"
+
+#include "ui.vim"
+
+#include "moving.vim"
+
+#include "buffers.vim"
+
+#include "windows.vim"
+
+#include "tabs.vim"
+
+#include "statusline.vim"
+
+#include "additions.vim"
