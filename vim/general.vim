@@ -25,6 +25,9 @@ nmap <leader>w :w!<cr>
 inoremap jk <esc>
 vnoremap jk <esc> 
 
+"insert newline under cursor w/o moving cursor. uses m marker
+nnoremap <cr> mmo<esc>`m
+
 "insert mode commands
 inoremap <C-u> <esc>g~iwea
 

@@ -1,3 +1,8 @@
+#ifdef WITH_PLUGINS
+execute pathogen#infect()
+#include "plugins/plug_includes"
+#endif
+
 #include "general.vim"
 
 #include "ui.vim"

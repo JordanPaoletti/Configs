@@ -1,0 +1,6 @@
+#! /bin/bash
+mkdir -p ~/.vim/autoload
+cp vim/plugins/pathogen.vim ~/.vim/autoload
+(cd vim && make plugins)
+cp vim/vimrc ~/.vimrc
+vim/plugins/install

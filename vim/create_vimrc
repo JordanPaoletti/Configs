@@ -1,3 +1,2 @@
 #! /bin/bash
-
-cpp -P -w -ansi -traditional-cpp doc vimrc $defs
+cpp -P -w -ansi -traditional-cpp doc vimrc $@

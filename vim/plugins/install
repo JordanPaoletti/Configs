@@ -1,0 +1,24 @@
+#! /bin/bash
+dir=~/.vim/bundle
+mkdir -p $dir
+
+# vim-go plugin
+if [ ! -d "$dir/vim-go" ]; then
+    git clone https://github.com/fatih/vim-go.git $dir/vim-go
+else
+    (cd $dir/vim-go && git pull)
+fi
+
+# ctrlp plugin
+if [ ! -d "$dir/ctrlp" ]; then
+    git clone https://github.com/ctrlpvim/ctrlp.vim.git $dir/ctrlp
+else
+    (cd $dir/ctrlp && git pull)
+fi
+
+# easy motion plugin
+if [ ! -d "$dir/vim-easymotion" ]; then
+    git clone https://github.com/easymotion/vim-easymotion.git $dir/vim-easymotion
+else
+    (cd $dir/vim-easymotion && git pull)
+fi
