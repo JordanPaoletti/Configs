@@ -8,4 +8,4 @@ different versions of the vimrc to be created
 doc will contain all the includes, so the file can
 be created by running
 
-cpp -P -w -traditional-cpp doc out.vim
+cpp -P -w -ansi -traditional-cpp doc out.vim
