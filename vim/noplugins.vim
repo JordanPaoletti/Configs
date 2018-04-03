@@ -1,5 +1,14 @@
+
 """""""""""""""""""""""""""""""""""""""""
-" Status Line
+" _No_Plugins
+"""""""""""""""""""""""""""""""""""""""""
+"contains settings for noplugins vim
+"contents
+
+" _Status_Line
+
+"""""""""""""""""""""""""""""""""""""""""
+" _Status_Line
 """""""""""""""""""""""""""""""""""""""""
 
 set laststatus=2

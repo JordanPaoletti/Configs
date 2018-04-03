@@ -2,14 +2,16 @@ PLUG_DIRS=-D WITH_PLUGINS
 IJ_DIRS=
 
 vimrc: 
-	./create_vimrc
+	cat base.vim noplugins.vim >vimrc
 
 plugins:
-	./create_vimrc $(PLUG_DIRS)
+	echo 'not supported' > pvimrc
 
 intellij:
-	./create_vimrc $(IJ_DIRS)
-	mv vimrc ideavimrc
+	cat base.vim noplugins.vim idea.vim >ideavimrc
 
-.PHONY: vimrc plugins intellij
+clean:
+	rm -f vimrc ideavimrc pvimrc
+
+.PHONY: vimrc plugins intellij clean
 
