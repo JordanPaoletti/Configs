@@ -11,6 +11,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -185,17 +186,21 @@ nmap <leader>bwrv :vertical resize
 
 "move to end of line
 nnoremap L $
+
 "move to first nonwhitespace of line
 nnoremap H ^
 
-"remap ',' to '.'
-nnoremap . ,
+"move cursor to bottom/top of screen
+nnoremap J L
+nnoremap K H
 
 "allow access to .
-nnoremap <leader>. .
+nnoremap <leader>. ,
 
 "center screen in insert
 inoremap <C-z> <esc>zza
+inoremap <C-z><C-t> <esc>zta
+inoremap <C-z><C-b> <esc>zba
 
 "bottom with zz
 nnoremap G Gzz
@@ -218,9 +223,7 @@ nnoremap G Gzz
 nnoremap <leader>ff :Files<cr>
 nnoremap <leader>fc :Commits<cr>
 nnoremap <leader>fb :Buffers<cr>
-nnoremap <leader><tab> <plug>(fzf-maps-n)
-xnoremap <leader><tab> <plug>(fzf-maps-x)
-onoremap <leader><tab> <plug>(fzf-maps-o)
+nnoremap <leader>fl :Lines<cr>
 
 """""""""""""""""""""""""""""""""""""""""
 " _LightLine
@@ -230,3 +233,4 @@ set laststatus=2
 if !has('gui_running')
     set t_Co=256
 endif
+

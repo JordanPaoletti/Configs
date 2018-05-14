@@ -169,17 +169,21 @@ nmap <leader>bwrv :vertical resize
 
 "move to end of line
 nnoremap L $
+
 "move to first nonwhitespace of line
 nnoremap H ^
 
-"remap ',' to '.'
-nnoremap . ,
+"move cursor to bottom/top of screen
+nnoremap J L
+nnoremap K H
 
 "allow access to .
-nnoremap <leader>. .
+nnoremap <leader>. ,
 
 "center screen in insert
 inoremap <C-z> <esc>zza
+inoremap <C-z><C-t> <esc>zta
+inoremap <C-z><C-b> <esc>zba
 
 "bottom with zz
 nnoremap G Gzz
