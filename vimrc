@@ -181,7 +181,7 @@ nnoremap K H
 nnoremap <leader>. ,
 
 "center screen in insert
-inoremap <C-z> <esc>zza
+inoremap <C-z><C-z> <esc>zza
 inoremap <C-z><C-t> <esc>zta
 inoremap <C-z><C-b> <esc>zba
 
