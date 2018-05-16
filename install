@@ -20,6 +20,10 @@ while getopts ":brph?" opt; do
         b)
             etc/backup
             ;;
+        r)
+            echo 'erase old files'
+            RemoveOld=1
+            ;;
     esac
 done
 
