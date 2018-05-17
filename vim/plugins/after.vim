@@ -9,6 +9,7 @@
 
 " _Fzf
 " _LightLine
+" _Ale
 
 """""""""""""""""""""""""""""""""""""""""
 " _Fzf
@@ -26,4 +27,11 @@ set laststatus=2
 if !has('gui_running')
     set t_Co=256
 endif
+
+"""""""""""""""""""""""""""""""""""""""""
+" _Ale
+"""""""""""""""""""""""""""""""""""""""""
+let g:ale_lint_on_text_changed=0
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
 

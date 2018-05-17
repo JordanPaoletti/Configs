@@ -12,6 +12,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
