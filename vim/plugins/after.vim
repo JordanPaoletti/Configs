@@ -10,6 +10,7 @@
 " _Fzf
 " _LightLine
 " _Ale
+" _GutenTags
 
 """""""""""""""""""""""""""""""""""""""""
 " _Fzf
@@ -45,3 +46,8 @@ nnoremap <leader>at :ALEToggle<cr>
 "omnicompletion
 let g:ale_completion_enabled = 1
 
+
+"""""""""""""""""""""""""""""""""""""""""
+" _GutenTags
+"""""""""""""""""""""""""""""""""""""""""
+let g:gutentags_project_root = ['.tag_root']
