@@ -43,6 +43,7 @@ vnoremap jk <esc>
 
 "insert newline under cursor w/o moving cursor. uses m marker
 nnoremap <cr> mmo<esc>`m
+nnoremap <leader><cr> <cr>
 
 "insert mode commands
 inoremap <C-u> <esc>g~iwea

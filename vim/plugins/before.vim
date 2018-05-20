@@ -13,6 +13,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug 'leafgarland/typescript-vim'
+Plug 'ludovicchabant/vim-gutentags'
+
 
 call plug#end()
 
