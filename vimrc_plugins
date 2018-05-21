@@ -14,7 +14,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug 'leafgarland/typescript-vim'
 Plug 'ludovicchabant/vim-gutentags'
-
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -222,6 +222,7 @@ nnoremap G Gzz
 " _LightLine
 " _Ale
 " _GutenTags
+" _TagBar
 
 """""""""""""""""""""""""""""""""""""""""
 " _Fzf
@@ -261,4 +262,9 @@ let g:ale_completion_enabled = 1
 """""""""""""""""""""""""""""""""""""""""
 " _GutenTags
 """""""""""""""""""""""""""""""""""""""""
-g:gutentags_project_root = ['.tag_root']
+let g:gutentags_project_root = ['.tag_root']
+
+"""""""""""""""""""""""""""""""""""""""""
+" _TagBar
+"""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>t :TagbarToggle<cr>

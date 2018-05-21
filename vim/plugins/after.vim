@@ -11,6 +11,7 @@
 " _LightLine
 " _Ale
 " _GutenTags
+" _TagBar
 
 """""""""""""""""""""""""""""""""""""""""
 " _Fzf
@@ -51,3 +52,8 @@ let g:ale_completion_enabled = 1
 " _GutenTags
 """""""""""""""""""""""""""""""""""""""""
 let g:gutentags_project_root = ['.tag_root']
+
+"""""""""""""""""""""""""""""""""""""""""
+" _TagBar
+"""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>t :TagbarToggle<cr>

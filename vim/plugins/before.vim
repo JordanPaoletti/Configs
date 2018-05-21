@@ -14,7 +14,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug 'leafgarland/typescript-vim'
 Plug 'ludovicchabant/vim-gutentags'
-
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
