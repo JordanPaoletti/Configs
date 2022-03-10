@@ -1,6 +1,0 @@
-Usage: ./install [-pbr]
-
-Options:
- -p install vimrc supporting plugins (default no plugins)
- -b create backup of .vim folder, .vimrc, .ideavimrc, and .tmux.conf
- -r remove old files

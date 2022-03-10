@@ -39,17 +39,19 @@ nmap <leader>w :w!<cr>
 
 "escape remap
 inoremap jk <esc>
-vnoremap jk <esc> 
 
 "insert newline under cursor w/o moving cursor. uses m marker
 nnoremap <cr> mmo<esc>`m
 nnoremap <leader><cr> <cr>
 
+"Access visual block
+nnoremap vb <C-v>
+
 "insert mode commands
 inoremap <C-u> <esc>g~iwea
 
 "leader  based commands
-nnoremap <leader>cm :!make 
+nnoremap <leader>cm :!make
 nnoremap <leader>cc :!
 nnoremap <leader>U g~iw
 nnoremap <leader>u g~iwe
@@ -120,6 +122,7 @@ set foldcolumn=0
 color desert
 set background=dark
 syntax on
+set number
 set relativenumber
 
 "file settings
@@ -134,7 +137,7 @@ set ffs=unix,dos,mac
 nmap <leader>bls :buffers<cr>
 nmap <leader>bn :bn<cr>
 nmap <leader>bp :bp<cr>
-nmap <leader>bb :buffers<cr>:b 
+nmap <leader>bb :buffers<cr>:b
 nmap <leader>bd :bp\|bd #<cr>
 
 """""""""""""""""""""""""""""""""""""""""
@@ -160,8 +163,8 @@ nmap <leader>bwv :vsplit<cr>
 nmap <leader>bws :split<cr>
 nmap <leader>bwq :quit<cr>
 nmap <leader>bwo :only<cr>
-nmap <leader>bwr :resize 
-nmap <leader>bwrv :vertical resize 
+nmap <leader>bwr :resize
+nmap <leader>bwrv :vertical resize
 
 
 """""""""""""""""""""""""""""""""""""""""
@@ -174,9 +177,6 @@ nnoremap L $
 "move to first nonwhitespace of line
 nnoremap H ^
 
-"move cursor to bottom/top of screen
-nnoremap J L
-nnoremap K H
 
 "allow access to .
 nnoremap <leader>. ,
@@ -189,3 +189,39 @@ inoremap <C-z><C-b> <esc>zba
 "bottom with zz
 nnoremap G Gzz
 
+
+"""""""""""""""""""""""""""""""""""""""""
+" _No_Plugins
+"""""""""""""""""""""""""""""""""""""""""
+"contains settings for noplugins vim
+"contents
+
+" _Status_Line
+
+"""""""""""""""""""""""""""""""""""""""""
+" _Status_Line
+"""""""""""""""""""""""""""""""""""""""""
+
+set laststatus=2
+
+set statusline=%f            " Path to file
+set statusline+=\ -\         " Separator
+set statusline+=Type:        " Label
+set statusline+=%y           " Filetype of the file
+set statusline+=\ -\         " Separator
+set statusline+=Buf:         " Label
+set statusline+=%n           " Buffer number
+set statusline+=%=           " Switch to right side
+set statusline+=Line:        " Label
+set statusline+=%l           " current line
+set statusline+=/            " Separator
+set statusline+=%-5L         " Total Lines
+set statusline+=\ \          " Separator
+set statusline+=Col:         " Label
+set statusline+=%c\          " Column number
+
+"""""""""""""""""""""""""""""""""""""""""
+" _IdeaVim
+"""""""""""""""""""""""""""""""""""""""""
+set easymotion
+set commentary
