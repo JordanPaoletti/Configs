@@ -16,30 +16,86 @@
 ;; install packages
 
 (setq package-list
-      '( 
+      '(
+         ;;;
          ;; UI
+         ;;;
+
+         ;; https://melpa.org/#/monokai-theme
+         ; UI / code color theming
          monokai-theme
+
+         ;; https://github.com/nschum/highlight-symbol.el
+         ; highlights current cursor symbol
          highlight-symbol
+
+         ;; https://github.com/bbatsov/projectile
+         ; commands for finding/navigating files as a project
          projectile
 
+         ;;;
          ;; editing
+         ;;;
+
+         ;; http://company-mode.github.io/
+         ; Text completion framework
          company
-         ido-ubiquitous
+
+         ;; https://github.com/DarwinAwardWinner/ido-completing-read-plus
+         ; ui for auto completions
+         ido-completing-read+
+
+         ;; https://github.com/nonsequitur/smex
+         ; convenient interface fo M-x commands
          smex
 
+         ;;;
          ;; evil
+         ;;;
+
+         ;; https://github.com/emacs-evil/evil
+         ; vi emulation
          evil
+
+         ;; https://github.com/syl20bnr/evil-escape
+         ; remap the escape key sequence for evil
          evil-escape
 
+         ;;;
          ;; general lisp
+         ;;;
+
+         ;; https://github.com/Fanael/rainbow-delimiters
+         ; use various colors to match delimiters: (, {, [ etc
          rainbow-delimiters
+
+         ;; https://www.emacswiki.org/emacs/ParEdit
+         ; convenient manual parenthesis editing tools
          paredit
 
+         ;;;
+         ;; common lisp
+         ;;;
+
+         ;; https://github.com/slime/slime
+         ; common lisp repl integration
+         slime
+
+         ;;;
          ;; clojure
+         ;;;
+
+         ;; https://github.com/clojure-emacs/clojure-mode
+         ; provides clojure language support
          clojure-mode
+
+         ;; https://github.com/clojure-emacs/clojure-mode/blob/master/clojure-mode-extra-font-locking.el
+         ; extra syntax highlighting
          clojure-mode-extra-font-locking
+
+         ;; https://github.com/clojure-emacs/cider
+         ; Clojure repl integration
          cider
-         ;clj-refactor
 
          ))
 
@@ -54,6 +110,7 @@
 (load "setup-clojure.el")
 (load "editing.el")
 (load "misc.el")
+(load "common-lisp.el")
 
 
 (custom-set-variables

@@ -1,7 +1,8 @@
 ;; UI related configurations
 
 ;; Show line numbers
-(global-linum-mode)
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative) ; relative line numbering
 
 ;; full path in title bar
 (setq-default frame-title-format "%b (%f)")
