@@ -20,8 +20,12 @@
 * `C-c C-e` evaluate preceding form
 * `C-c C-c` evaluate top level form
 * `C-left/right` barf / slurp
+* `C-j` newline in repl
 
 ## emacs cheat sheet 
 * [cheat sheet](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf)
 * `C-x d` enter dired
 * `C-x C-b` list open buffers
+* `C-x k` kill current buffer
+* `M-x shell` open interactive shell in buffer
+* `C-g` cancel current action
