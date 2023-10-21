@@ -1,1 +1,1 @@
-Collection of config files for various applications
+# Collection of config files for various applications
