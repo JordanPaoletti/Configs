@@ -1,31 +1,33 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: {
+    imports = [
+        ./cli
+    ];
+    home.username = "jordan";
+    home.homeDirectory = "/home/jordan";
 
-{
-  home.username = "jordan";
-  home.homeDirectory = "/home/jordan";
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    home.stateVersion = "23.05";
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05"; # Please read the comment before changing.
+    home.packages = [
+      # cli
+      pkgs.xclip
 
-  home.packages = [
-    # cli
-    pkgs.git
-    pkgs.xclip
-    
-    # apps
-    pkgs.jetbrains-toolbox
-    pkgs.discord
+      # apps
+      pkgs.jetbrains-toolbox
+      pkgs.discord
 
+      # nix
+      nixfmt
   ];
 
-  home.file = {
-    ".vimrc".source = ./vim/.vimrc;
-    ".ideavimrc".source = ./vim/.ideavimrc;
-  };
+    home.file = {
+      ".vimrc".source = ./vim/.vimrc;
+      ".ideavimrc".source = ./vim/.ideavimrc;
+    };
 
-  home.sessionVariables = {
-  };
+    home.sessionVariables = {
+    };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+    # Let Home Manager install and manage itself.
+    programs.home-manager.enable = true;
 }
