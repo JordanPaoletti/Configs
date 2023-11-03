@@ -1,11 +1,11 @@
 { pkgs, ... }: {
-  imports = [ ./git.nix ./zsh.nix ];
+  imports = [ ./git.nix ./sh.nix ];
 
-  home.packages = with pkgs;
-    [
-      # basic cli apps
-      xclip
-    ];
+  home.packages = with pkgs; [
+    # basic cli apps
+    xclip
+    podman
+  ];
 
   home.file = {
     ".vimrc".source = ../dotfiles/.vimrc;

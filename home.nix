@@ -1,7 +1,10 @@
 { config, pkgs, ... }: {
   imports = [ ./cli ./apps ];
-  home.username = "jordan";
-  home.homeDirectory = "/home/jordan";
+
+  home = {
+    username = "jordan";
+    homeDirectory = "/home/jordan";
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";

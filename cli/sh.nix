@@ -12,8 +12,8 @@
 
     shellAliases = {
       hms = "home-manager --flake . switch";
-      pbcopy = "xclip -selection clipboard";
-      pbpaste = "xclip -selection clipboard -o";
+      "nixfmt." = "nixfmt $(find . -name '*.nix')";
+      sudoe = "sudo --preserve-env=PATH env";
     };
   };
 
