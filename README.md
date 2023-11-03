@@ -10,6 +10,10 @@
 # update config
 home-manager switch
 
+# update nixpkgs in flake
+nix flake update
+# run home-manager switch after
+
 # nixfmt (from hm base directory)
 nixfmt $(find . -name "*.nix")
 ```
