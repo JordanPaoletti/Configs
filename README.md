@@ -17,3 +17,8 @@ nix flake update
 # nixfmt (from hm base directory)
 nixfmt $(find . -name "*.nix")
 ```
+
+
+## Getting home-manager installed
+* [install multi-user version](https://nixos.org/manual/nix/stable/installation/installation#multi-user)
+* [install home-manager with flakes](https://nix-community.github.io/home-manager/index.html#ch-nix-flakes)
