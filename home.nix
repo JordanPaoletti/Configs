@@ -17,6 +17,11 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  # Get desktop entries to populate on ubuntu
+  xdg.enable = true;
+  xdg.mime.enable = true;
+  targets.genericLinux.enable = true;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
