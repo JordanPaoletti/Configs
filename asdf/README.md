@@ -28,22 +28,61 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch <latest>
 
 ## Managed Apps:
 * [java](https://github.com/halcyon/asdf-java)
-    * ```shell
-      asdf plugin-add java https://github.com/halcyon/asdf-java.git
-      ```
+  * ```shell
+    # install plugin
+    asdf plugin-add java https://github.com/halcyon/asdf-java.git
+    ```
+  * ```shell
+    # install deps
+    sudo apt install curl unzip jq
+    ```
+  * ```shell
+    # install latest
+    asdf list-all java | grep openjdk # latest doesn't work
+    ```
+    
 * [maven](https://github.com/halcyon/asdf-maven)
-    * ```shell
-      asdf plugin-add maven
-      ```
+  * ```shell
+    # install plugin
+    asdf plugin-add maven
+    ```
+  * ```shell
+    # install latest
+    asdf install maven latest && asdf global maven latest
+    ```
+    
 * [node](https://github.com/asdf-vm/asdf-nodejs)
-    * ```shell
-      asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-      ```
+  * ```shell
+    # install plugin
+    asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+    ```
+  * ```shell
+    # install latest
+    asdf install nodejs latest && asdf global nodejs latest
+    ```
+    
 * [poetry](https://github.com/asdf-community/asdf-poetry)
-    * ```shell
-      asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
-      ```
+  * ```shell
+    # install plugin
+    asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
+    ```
+  * ```shell
+    # install latest
+    asdf install poetry latest && asdf global poetry latest
+    ```
+    
 * [python](https://github.com/asdf-community/asdf-python)
-    * ```shell
-      asdf plugin-add python
-      ```
+  * ```shell
+    # install plugin
+    asdf plugin-add python
+    ```
+  * ```shell
+    # install deps
+    sudo apt install make build-essential libssl-dev zlib1g-dev libbz2-dev \
+    libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+    xz-utils tk-dev libffi-dev liblzma-dev 
+    ```
+  * ```shell
+    # install latest
+    asdf install python latest && asdf global python latest
+    ```
