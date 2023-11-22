@@ -5,6 +5,8 @@
       bindkey -M viins 'jk' vi-cmd-mode
     '';
 
+    sessionVariables = { PATH = "/home/$USER/.deno/bin:$PATH"; };
+
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "vi-mode" ];

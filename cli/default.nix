@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # basic cli apps
     xclip
+    deno
   ];
 
   home.file = {
