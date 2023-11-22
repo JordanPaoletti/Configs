@@ -2,9 +2,10 @@
   imports = [ ./git.nix ./sh.nix ];
 
   home.packages = with pkgs; [
-    # basic cli apps
+    # cli apps
     xclip
     deno
+    asdf-vm
   ];
 
   home.file = {

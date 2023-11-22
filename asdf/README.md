@@ -15,11 +15,35 @@
 * `asdf current` - list versions of tools used and the `.tool-versions` file location specifying
 * `asdf list-all <app>` - list all available versions (pipe to grep)
 
+
+## Install with Zsh and oh my zsh
+note that homemanager will set up asdf so this isn't needed when using nix
+
+```shell
+# download asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch <latest>
+
+# add asdf to oh my zsh plugins
+```
+
 ## Managed Apps:
-* [deno](https://github.com/asdf-community/asdf-deno)
-* [tomcat](https://github.com/mbutov/asdf-tomcat)
 * [java](https://github.com/halcyon/asdf-java)
+    * ```shell
+      asdf plugin-add java https://github.com/halcyon/asdf-java.git
+      ```
 * [maven](https://github.com/halcyon/asdf-maven)
+    * ```shell
+      asdf plugin-add maven
+      ```
 * [node](https://github.com/asdf-vm/asdf-nodejs)
+    * ```shell
+      asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+      ```
 * [poetry](https://github.com/asdf-community/asdf-poetry)
+    * ```shell
+      asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
+      ```
 * [python](https://github.com/asdf-community/asdf-python)
+    * ```shell
+      asdf plugin-add python
+      ```
