@@ -6,6 +6,7 @@
     xclip
     deno
     asdf-vm
+    kubectl
   ];
 
   home.file = {
