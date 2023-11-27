@@ -7,6 +7,7 @@
     deno
     asdf-vm
     kubectl
+    tree
   ];
 
   home.file = {
