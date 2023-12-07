@@ -1,15 +1,16 @@
-{
+{ pkgs, ... }: {
   programs.zsh = {
     enable = true;
     initExtra = ''
       bindkey -M viins 'jk' vi-cmd-mode
+      . ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
     '';
 
     sessionVariables = { PATH = "/home/$USER/.deno/bin:$PATH"; };
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "vi-mode" "asdf" "kubectl"];
+      plugins = [ "git" "vi-mode" "asdf" "kubectl" ];
     };
 
     shellAliases = {
