@@ -10,7 +10,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "vi-mode" "asdf" "kubectl" ];
+      plugins = [ "git" "vi-mode" "kubectl" ];
     };
 
     shellAliases = {
