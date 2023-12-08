@@ -8,6 +8,7 @@
     asdf-vm
     kubectl
     tree
+    certbot
   ];
 
   home.file = {
