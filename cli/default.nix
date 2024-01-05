@@ -9,6 +9,9 @@
     kubectl
     tree
     certbot
+
+    # SDK / Frameworks
+    texliveFull
   ];
 
   home.file = {
