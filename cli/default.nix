@@ -9,6 +9,7 @@
     kubectl
     tree
     certbot
+    qmk
 
     # SDK / Frameworks
     texliveFull
