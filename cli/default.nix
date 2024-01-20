@@ -10,6 +10,7 @@
     tree
     certbot
     qmk
+    tmux
 
     # SDK / Frameworks
     texliveFull
