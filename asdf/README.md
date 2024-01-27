@@ -61,6 +61,15 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch <latest>
     asdf install nodejs latest && asdf global nodejs latest
     ```
     
+* [graalvm](https://github.com/asdf-community/asdf-graalvm)
+  * ```shell
+    # install plugin
+    asdf plugin-add graalvm https://github.com/asdf-community/asdf-graalvm.git
+    ```
+  * ```shell
+    # install latest
+    asdf install graalvm latest && asdf global graalvm latest
+    
 * [poetry](https://github.com/asdf-community/asdf-poetry)
   * ```shell
     # install plugin
@@ -86,3 +95,14 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch <latest>
     # install latest
     asdf install python latest && asdf global python latest
     ```
+
+* [quarkus-cli](https://github.com/asdf-community/asdf-quarkus)
+  * ```shell
+    # install plugin
+    asfd plugin add quarkus
+    ```
+  * ```shell
+    # install latest
+    asfd install quarkus latest && asdf global quarkus latest
+    ```
+
