@@ -95,6 +95,20 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch <latest>
     # install latest
     asdf install python latest && asdf global python latest
     ```
+    
+* [golang](https://github.com/asdf-community/asdf-golang)
+  * ```shell
+    # install plugin
+    asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
+    ```
+  * ```shell
+    # install deps
+    sudo apt install coreutils curl
+    ```
+  * ```shell
+    # install latest
+    asdf install golang latest && asdf global golang latest
+    ```
 
 * [quarkus-cli](https://github.com/asdf-community/asdf-quarkus)
   * ```shell
