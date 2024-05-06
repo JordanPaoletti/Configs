@@ -109,6 +109,7 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch <latest>
     # install latest
     asdf install golang latest && asdf global golang latest
     ```
+  * Run `asdf reshim golang` after using `go get` or `go install`
 
 * [quarkus-cli](https://github.com/asdf-community/asdf-quarkus)
   * ```shell
