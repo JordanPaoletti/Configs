@@ -1,0 +1,19 @@
+{
+  // vim
+  "vim.easymotion": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+        "before": ["j", "k"],
+        "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+        "before": ["<leader>", "w"],
+        "after": [":", "w", "<cr>" ]
+    }
+  ],
+  "vim.leader": ","
+}
