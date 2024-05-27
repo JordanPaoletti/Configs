@@ -19,7 +19,7 @@
 
     shellAliases = {
       hms = "home-manager --flake . switch";
-      "nixfmt." = "nixfmt $(find . -name '*.nix')";
+      "nixfmt." = "nixfmt-rfc-style $(find . -name '*.nix')";
       sudoe = "sudo --preserve-env=PATH env";
     };
   };
