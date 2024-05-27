@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./git.nix ./sh.nix ];
+  imports = [ ./git.nix ./sh.nix ./nvim];
 
   home.packages = with pkgs; [
     # cli apps
