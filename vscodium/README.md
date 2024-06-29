@@ -13,4 +13,4 @@ By default, codium connects to the [open-vsx](https://open-vsx.org/) marketplace
 
 ### Suggested Extensions
 * Vim
-* 
+* Godot Tools

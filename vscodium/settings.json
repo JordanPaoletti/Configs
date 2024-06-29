@@ -15,5 +15,10 @@
         "after": [":", "w", "<cr>" ]
     }
   ],
-  "vim.leader": ","
+  "vim.leader": ",",
+
+  // godot-tools
+  "godotTools.editorPath.godot4": "/home/jordan/.local/bin/godot",
+  "git.openRepositoryInParentFolders": "never",
+  "godotTools.lsp.serverPort": 6005
 }
