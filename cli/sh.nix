@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   programs.zsh = {
     enable = true;
+
     initExtra = ''
       bindkey -M viins 'jk' vi-cmd-mode
       . ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
@@ -8,6 +9,11 @@
       if [ -f /home/$USER/.asdf/plugins/java/set-java-home.zsh ]; then
           . /home/$USER/.asdf/plugins/java/set-java-home.zsh
       fi
+    '';
+
+    envExtra = ''
+      export PATH="/home/$USER/.deno/bin:$PATH"
+      export PATH="/home/$USER/.local/bin:$PATH"
     '';
 
     sessionVariables = { PATH = "/home/$USER/.deno/bin:$PATH"; };
