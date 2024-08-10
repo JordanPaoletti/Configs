@@ -7,6 +7,7 @@
     deno
     asdf-vm
     kubectl
+    kubernetes-helm
     tree
     certbot
     qmk
