@@ -168,16 +168,6 @@ nmap <leader>bwrv :vertical resize
 " _Moving_Around
 """""""""""""""""""""""""""""""""""""""""
 
-"move to end of line
-nnoremap L $
-
-"move to first nonwhitespace of line
-nnoremap H ^
-
-"move cursor to bottom/top of screen
-nnoremap J L
-nnoremap K H
-
 "allow access to .
 nnoremap <leader>. ,
 
@@ -185,9 +175,6 @@ nnoremap <leader>. ,
 inoremap <C-z><C-z> <esc>zza
 inoremap <C-z><C-t> <esc>zta
 inoremap <C-z><C-b> <esc>zba
-
-"bottom with zz
-nnoremap G Gzz
 
 
 """""""""""""""""""""""""""""""""""""""""
