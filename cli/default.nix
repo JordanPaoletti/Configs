@@ -1,5 +1,10 @@
-{ pkgs, ... }: {
-  imports = [ ./git.nix ./sh.nix ./nvim ];
+{ config, pkgs, ... }: {
+  imports = [
+  ../lib
+  ./git.nix
+  ./sh.nix
+  ./nvim
+  ];
 
   home.packages = with pkgs; [
     # cli apps
@@ -18,9 +23,9 @@
   ];
 
   home.file = {
-    ".vimrc".source = ../dotfiles/.vimrc;
-    ".ideavimrc".source = ../dotfiles/.ideavimrc;
-    ".tmux.conf".source = ../dotfiles/.tmux.conf;
-    ".keynavrc".source = ../dotfiles/.keynavrc;
+    ".vimrc".source = config.lib.file.mkFlakeSymlink ../dotfiles/.vimrc;
+    ".ideavimrc".source = config.lib.file.mkFlakeSymlink ../dotfiles/.ideavimrc;
+    ".tmux.conf".source = config.lib.file.mkFlakeSymlink ../dotfiles/.tmux.conf;
+    ".keynavrc".source = config.lib.file.mkFlakeSymlink ../dotfiles/.keynavrc;
   };
 }

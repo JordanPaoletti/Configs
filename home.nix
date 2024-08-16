@@ -1,9 +1,10 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [ ./cli ./apps ];
 
   home = {
     username = "jordan";
     homeDirectory = "/home/jordan";
+    flakePath = "/home/jordan/.config/home-manager";
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
