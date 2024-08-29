@@ -3,6 +3,11 @@
   programs.zsh = {
     enable = true;
 
+    syntaxHighlighting = {
+      enable = true;
+      catppuccin.enable = true;
+    };
+
     initExtra = ''
       bindkey -M viins 'jk' vi-cmd-mode
       . ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
@@ -41,8 +46,10 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    catppuccin.enable = true;
+
     settings = {
-      format = "$all$directory$character";
+      #      format = "$all$directory$character";
     };
   };
 }

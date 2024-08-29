@@ -3,7 +3,7 @@
   imports = [
     ../lib
     ./git.nix
-    ./sh.nix
+    ./zsh.nix
     ./nvim
     ./tmux.nix
   ];
