@@ -1,5 +1,12 @@
 -- https://github.com/folke/lazy.nvim#-plugin-spec
 require("lazy").setup({
+    -- movement
+    {
+      "easymotion/vim-easymotion",
+      lazy = false
+    },
+
+    -- treesitter
     {
         -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
