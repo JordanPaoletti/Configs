@@ -13,6 +13,7 @@
 
   xdg.configFile = {
     "nvim/lua".source = config.lib.file.mkFlakeSymlink ./lua;
+    "nvim/after".source = config.lib.file.mkFlakeSymlink ./after;
   };
 
   programs.zsh.shellAliases.vimdiff = "nvim -d";
