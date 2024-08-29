@@ -1,5 +1,9 @@
-{ pkgs, ... }: {
-  imports = [ ./cli ./apps ];
+{ pkgs, ... }:
+{
+  imports = [
+    ./cli
+    ./apps
+  ];
 
   home = {
     username = "jordan";
@@ -11,7 +15,7 @@
   home.stateVersion = "23.05";
 
   # Nix related packages
-  home.packages = with pkgs; [ nixfmt ];
+  home.packages = with pkgs; [ nixfmt-rfc-style ];
 
   home.sessionVariables = { };
 

@@ -10,14 +10,16 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs =
+    { nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         system = system;
         config.allowUnfree = true;
       };
-    in {
+    in
+    {
       homeConfigurations."jordan" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

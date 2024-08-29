@@ -1,10 +1,11 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   imports = [
-  ../lib
-  ./git.nix
-  ./sh.nix
-  ./nvim
-  ./tmux.nix
+    ../lib
+    ./git.nix
+    ./sh.nix
+    ./nvim
+    ./tmux.nix
   ];
 
   home.packages = with pkgs; [

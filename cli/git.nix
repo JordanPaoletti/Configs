@@ -1,4 +1,11 @@
-{ inputs, outputs, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  config,
+  pkgs,
+  ...
+}:
+{
   programs.git = {
     enable = true;
     userName = "Jordan Paoletti";
