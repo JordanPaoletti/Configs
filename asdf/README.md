@@ -28,96 +28,106 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch <latest>
 
 ## Managed Apps:
 * [java](https://github.com/halcyon/asdf-java)
-  * ```shell
+  ```shell
     # install plugin
     asdf plugin-add java https://github.com/halcyon/asdf-java.git
-    ```
-  * ```shell
+  ```
+  ```shell
     # install deps
     sudo apt install curl unzip jq
-    ```
-  * ```shell
+  ```
+  ```shell
     # install latest
     asdf list-all java | grep openjdk # latest doesn't work
-    ```
+  ```
     
 * [maven](https://github.com/halcyon/asdf-maven)
-  * ```shell
+  ```shell
     # install plugin
     asdf plugin-add maven
     ```
-  * ```shell
+  ```shell
     # install latest
     asdf install maven latest && asdf global maven latest
-    ```
+  ```
     
 * [node](https://github.com/asdf-vm/asdf-nodejs)
-  * ```shell
+  ```shell
     # install plugin
     asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-    ```
-  * ```shell
+  ```
+  ```shell
     # install latest
     asdf install nodejs latest && asdf global nodejs latest
-    ```
+  ```
     
 * [graalvm](https://github.com/asdf-community/asdf-graalvm)
-  * ```shell
+  ```shell
     # install plugin
     asdf plugin-add graalvm https://github.com/asdf-community/asdf-graalvm.git
-    ```
-  * ```shell
+  ```
+  ```shell
     # install latest
     asdf install graalvm latest && asdf global graalvm latest
-    
+  ``` 
 * [poetry](https://github.com/asdf-community/asdf-poetry)
-  * ```shell
+  ```shell
     # install plugin
     asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
-    ```
-  * ```shell
+  ```
+  ```shell
     # install latest
     asdf install poetry latest && asdf global poetry latest
-    ```
+  ```
     
 * [python](https://github.com/asdf-community/asdf-python)
-  * ```shell
+  ```shell
     # install plugin
     asdf plugin-add python
-    ```
-  * ```shell
+  ```
+  ```shell
     # install deps
     sudo apt install make build-essential libssl-dev zlib1g-dev libbz2-dev \
     libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
     xz-utils tk-dev libffi-dev liblzma-dev 
-    ```
-  * ```shell
+  ```
+  ```shell
     # install latest
     asdf install python latest && asdf global python latest
-    ```
+  ```
     
 * [golang](https://github.com/asdf-community/asdf-golang)
-  * ```shell
+  ```shell
     # install plugin
     asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
-    ```
-  * ```shell
+  ```
+  ```shell
     # install deps
     sudo apt install coreutils curl
-    ```
-  * ```shell
+  ```
+  ```shell
     # install latest
     asdf install golang latest && asdf global golang latest
-    ```
+  ```
   * Run `asdf reshim golang` after using `go get` or `go install`
 
 * [quarkus-cli](https://github.com/asdf-community/asdf-quarkus)
-  * ```shell
+  ```shell
     # install plugin
     asfd plugin add quarkus
-    ```
-  * ```shell
+  ```
+  ```shell
     # install latest
     asfd install quarkus latest && asdf global quarkus latest
-    ```
+  ```
 
+* [rust]()
+  ```shell
+    # install plugin
+    asdf plugin-add rust https://github.com/code-lever/asdf-rust.git
+  ```
+  ```shell
+    # install latest
+    asdf install rust latest && asdf global rust latest
+  ```
+  
