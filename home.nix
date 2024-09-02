@@ -3,6 +3,7 @@
   imports = [
     ./cli
     ./apps
+    ./awesome-wm
   ];
 
   home = {

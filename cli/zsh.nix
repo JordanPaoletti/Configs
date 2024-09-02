@@ -55,8 +55,8 @@
   };
 
   programs.zoxide = {
-  enable = true;
-  enableZshIntegration = true;
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.starship = {
