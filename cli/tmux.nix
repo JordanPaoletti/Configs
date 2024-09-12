@@ -9,7 +9,10 @@
       bind-key r source-file ${config.xdg.configHome}/tmux/tmux.conf \; display-message "tmux.conf reloaded"
 
       source-file ${config.xdg.configHome}/tmux/user.conf
+
+      run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
     '';
+
     plugins = with pkgs.tmuxPlugins; [
       yank
       catppuccin
