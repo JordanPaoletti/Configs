@@ -20,7 +20,7 @@
     qmk
 
     # SDK / Frameworks
-    texliveFull
+    # texliveFull
   ];
 
   home.file = {
