@@ -39,7 +39,6 @@ nmap <leader>w :w!<cr>
 
 "escape remap
 inoremap jk <esc>
-vnoremap jk <esc> 
 
 "insert newline under cursor w/o moving cursor. uses m marker
 nnoremap <cr> mmo<esc>`m
