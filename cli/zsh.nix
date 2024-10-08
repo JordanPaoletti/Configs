@@ -39,6 +39,7 @@
       hms = "home-manager --flake . switch";
       "nixfmt." = "nixfmt $(find . -name '*.nix')";
       sudoe = "sudo --preserve-env=PATH env";
+      nixd = "nix develop -c $SHELL";
     };
   };
 
