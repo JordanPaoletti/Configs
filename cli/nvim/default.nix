@@ -1,20 +1,24 @@
 { config, pkgs, ... }:
 {
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    extraConfig = builtins.readFile ./init.vim;
-    extraLuaConfig = ''
-      require('user')
-    '';
+    home.packages = with pkgs; [
+        tree-sitter
+    ];
 
-    plugins = with pkgs.vimPlugins; [ lazy-nvim ];
-  };
+    programs.neovim = {
+        enable = true;
+        defaultEditor = true;
+        extraConfig = builtins.readFile ./init.vim;
+        extraLuaConfig = ''
+            require('user')
+            '';
 
-  xdg.configFile = {
-    "nvim/lua".source = config.lib.file.mkFlakeSymlink ./lua;
-    "nvim/after".source = config.lib.file.mkFlakeSymlink ./after;
-  };
+        plugins = with pkgs.vimPlugins; [ lazy-nvim nvim-treesitter ];
+    };
 
-  programs.zsh.shellAliases.vimdiff = "nvim -d";
+    xdg.configFile = {
+        "nvim/lua".source = config.lib.file.mkFlakeSymlink ./lua;
+        "nvim/after".source = config.lib.file.mkFlakeSymlink ./after;
+    };
+
+    programs.zsh.shellAliases.vimdiff = "nvim -d";
 }
