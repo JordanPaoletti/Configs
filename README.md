@@ -4,6 +4,7 @@
 * [layout inspiration](https://github.com/nathanregner/nix-config/tree/master)
 * [home manager search](https://mipmip.github.io/home-manager-option-search/)
 * [nixpkgs search](https://search.nixos.org/packages)
+* [good reference on using nixos with flakes](https://nixos-and-flakes.thiscute.world/introduction/)
 
 ## helpful commands
 ```shell
