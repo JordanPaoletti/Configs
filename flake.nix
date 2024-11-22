@@ -26,6 +26,25 @@
       };
     in
     {
+      nixosConfigurations = {
+        framework = pkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit self inputs outputs;
+          };
+          modules = [
+            ./machines/framework/configuration.nix
+            ];
+        };
+
+        xps13 = pkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit self inputs outputs;
+          };
+          modules = [
+            ./machines/xps13/configuration.nix
+            ];
+        };
+      };
       homeConfigurations."jordan" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
