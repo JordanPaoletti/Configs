@@ -5,6 +5,7 @@
 * [home manager search](https://mipmip.github.io/home-manager-option-search/)
 * [nixpkgs search](https://search.nixos.org/packages)
 * [good reference on using nixos with flakes](https://nixos-and-flakes.thiscute.world/introduction/)
+* [using flakes for a dev shell](https://fasterthanli.me/series/building-a-rust-service-with-nix/part-10#a-flake-with-a-dev-shell)
 
 ## helpful commands
 ```shell
