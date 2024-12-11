@@ -18,6 +18,7 @@
     tree
     certbot
     qmk
+    just
 
     # SDK / Frameworks
     # texliveFull
