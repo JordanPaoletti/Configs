@@ -1,9 +1,7 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    ./cli
-    ./apps
-    ./awesome-wm
+    ../../modules/desktop/cli
   ];
 
   home = {
