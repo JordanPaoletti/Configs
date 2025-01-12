@@ -1,10 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  imports = [
-    ./cli
-    ./apps
-    ./awesome-wm
-  ];
+  imports = [ ../../modules/desktop/cli ];
 
   home = {
     username = "jordan";

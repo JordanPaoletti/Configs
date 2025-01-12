@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../lib
+    ../../lib
     ./git.nix
     ./zsh.nix
     ./nvim
@@ -25,8 +25,8 @@
   ];
 
   home.file = {
-    ".vimrc".source = config.lib.file.mkFlakeSymlink ../dotfiles/.vimrc;
-    ".ideavimrc".source = config.lib.file.mkFlakeSymlink ../dotfiles/.ideavimrc;
-    ".keynavrc".source = config.lib.file.mkFlakeSymlink ../dotfiles/.keynavrc;
+    ".vimrc".source = config.lib.file.mkFlakeSymlink ../../../dotfiles/.vimrc;
+    ".ideavimrc".source = config.lib.file.mkFlakeSymlink ../../../dotfiles/.ideavimrc;
+    ".keynavrc".source = config.lib.file.mkFlakeSymlink ../../../dotfiles/.keynavrc;
   };
 }

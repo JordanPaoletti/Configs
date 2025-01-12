@@ -26,18 +26,37 @@
       };
     in
     {
-      homeConfigurations."jordan" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+      nixosConfigurations = {
+        framework = pkgs.lib.nixosSystem {
+          modules = [
+            ./machines/framework/configuration.nix
+            ./machines/framework/hardware-configuration.nix
+            ./machines/framework/home.nix
+          ];
+        };
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          ./home.nix
-          catppuccin.homeManagerModules.catppuccin
-        ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+        xps13 = pkgs.lib.nixosSystem {
+          modules = [
+            ./machines/xps13/configuration.nix
+            ./machines/xps13/hardware-configuration.nix
+          ];
+        };
+      };
+      homeConfigurations = {
+        "jordan@dev-pc" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./machines/dev-pc/home.nix
+            catppuccin.homeManagerModules.catppuccin
+          ];
+        };
+        "jordan@framework" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./machines/framework/home.nix
+            catppuccin.homeManagerModules.catppuccin
+          ];
+        };
       };
     };
 }

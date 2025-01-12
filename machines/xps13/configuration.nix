@@ -20,8 +20,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-c72501a2-df24-463c-afd7-13dd5b623770".device = "/dev/disk/by-uuid/c72501a2-df24-463c-afd7-13dd5b623770";
-  networking.hostName = "framework"; # Define your hostname.
+  boot.initrd.luks.devices."luks-c2511da4-bd2a-46e7-91b2-71af601d481e".device = "/dev/disk/by-uuid/c2511da4-bd2a-46e7-91b2-71af601d481e";
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -52,7 +52,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # GNOME related https://nixos.wiki/wiki/GNOME
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -97,11 +96,11 @@
     packages = with pkgs; [ home-manager ];
   };
 
-  # Enable ZSH systemwide
-  programs.zsh.enable = true;
-
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Enable ZSH systemwide
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -109,133 +108,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
-    mullvad-vpn
+    vim
     #  wget
-
-    gnomeExtensions.worksets
-  ];
-
-  services.mullvad-vpn.enable = true;
-
-  # Dynamically Loading libs
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    SDL
-    SDL2
-    SDL2_image
-    SDL2_mixer
-    SDL2_ttf
-    SDL_image
-    SDL_mixer
-    SDL_ttf
-    alsa-lib
-    at-spi2-atk
-    at-spi2-core
-    atk
-    bzip2
-    cairo
-    cups
-    curlWithGnuTls
-    dbus
-    dbus-glib
-    desktop-file-utils
-    e2fsprogs
-    expat
-    flac
-    fontconfig
-    freeglut
-    freetype
-    fribidi
-    fuse
-    fuse3
-    gdk-pixbuf
-    glew110
-    glib
-    gmp
-    gst_all_1.gst-plugins-base
-    gst_all_1.gst-plugins-ugly
-    gst_all_1.gstreamer
-    gtk2
-    harfbuzz
-    icu
-    keyutils.lib
-    libGL
-    libGLU
-    libappindicator-gtk2
-    libcaca
-    libcanberra
-    libcap
-    libclang.lib
-    libdbusmenu
-    libdrm
-    libgcrypt
-    libgpg-error
-    libidn
-    libjack2
-    libjpeg
-    libmikmod
-    libogg
-    libpng12
-    libpulseaudio
-    librsvg
-    libsamplerate
-    libthai
-    libtheora
-    libtiff
-    libudev0-shim
-    libusb1
-    libuuid
-    libvdpau
-    libvorbis
-    libvpx
-    libxcrypt-legacy
-    libxkbcommon
-    libxml2
-    libsecret
-    mesa
-    nspr
-    nss
-    openssl
-    p11-kit
-    pango
-    pixman
-    python3
-    speex
-    stdenv.cc.cc
-    tbb
-    udev
-    vulkan-loader
-    wayland
-    xorg.libICE
-    xorg.libSM
-    xorg.libX11
-    xorg.libXScrnSaver
-    xorg.libXcomposite
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXft
-    xorg.libXi
-    xorg.libXinerama
-    xorg.libXmu
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXt
-    xorg.libXtst
-    xorg.libXxf86vm
-    xorg.libpciaccess
-    xorg.libxcb
-    xorg.xcbutil
-    xorg.xcbutilimage
-    xorg.xcbutilkeysyms
-    xorg.xcbutilrenderutil
-    xorg.xcbutilwm
-    xorg.xkeyboardconfig
-    xz
-    zlib
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
