@@ -28,9 +28,6 @@
     {
       nixosConfigurations = {
         framework = pkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit self inputs outputs;
-          };
           modules = [
             ./machines/framework/configuration.nix
             ./machines/framework/hardware-configuration.nix
@@ -39,9 +36,6 @@
         };
 
         xps13 = pkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit self inputs outputs;
-          };
           modules = [
             ./machines/xps13/configuration.nix
             ./machines/xps13/hardware-configuration.nix
@@ -51,9 +45,6 @@
       homeConfigurations = {
         "jordan@dev-pc" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = {
-            inherit self inputs outputs;
-          };
           modules = [
             ./machines/dev-pc/home.nix
             catppuccin.homeManagerModules.catppuccin
@@ -61,9 +52,6 @@
         };
         "jordan@framework" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = {
-            inherit self inputs outputs;
-          };
           modules = [
             ./machines/framework/home.nix
             catppuccin.homeManagerModules.catppuccin

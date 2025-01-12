@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../lib
+    ../../lib
     ./git.nix
     ./zsh.nix
     ./nvim
