@@ -5,13 +5,16 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Experimental Features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -85,11 +88,12 @@
   users.users.jordan = {
     isNormalUser = true;
     description = "jordan";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      home-manager
+    extraGroups = [
+      "networkmanager"
+      "wheel"
     ];
+    shell = pkgs.zsh;
+    packages = with pkgs; [ home-manager ];
   };
 
   # Install firefox.
@@ -104,8 +108,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  vim
-  #  wget
+    vim
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

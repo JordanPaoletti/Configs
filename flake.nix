@@ -32,14 +32,14 @@
             ./machines/framework/configuration.nix
             ./machines/framework/hardware-configuration.nix
             ./machines/framework/home.nix
-            ];
+          ];
         };
 
         xps13 = pkgs.lib.nixosSystem {
           modules = [
             ./machines/xps13/configuration.nix
             ./machines/xps13/hardware-configuration.nix
-            ];
+          ];
         };
       };
       homeConfigurations = {
