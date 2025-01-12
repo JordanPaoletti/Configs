@@ -5,7 +5,6 @@
 
     syntaxHighlighting = {
       enable = true;
-      catppuccin.enable = true;
     };
 
     initExtra = ''
@@ -63,10 +62,14 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
-    catppuccin.enable = true;
 
     settings = {
       #      format = "$all$directory$character";
     };
+  };
+
+  catppuccin = {
+    starship.enable = true;
+    zsh-syntax-highlighting.enable = true;
   };
 }
