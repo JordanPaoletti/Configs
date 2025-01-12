@@ -17,41 +17,36 @@
       home-manager,
       catppuccin,
       ...
-    }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        system = system;
-        config.allowUnfree = true;
-      };
-    in
+    }@inputs:
     {
       nixosConfigurations = {
-        framework = pkgs.lib.nixosSystem {
+        framework = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
           modules = [
             ./machines/framework/configuration.nix
             ./machines/framework/hardware-configuration.nix
-            ./machines/framework/home.nix
           ];
         };
 
-        xps13 = pkgs.lib.nixosSystem {
+        xps13 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
           modules = [
             ./machines/xps13/configuration.nix
             ./machines/xps13/hardware-configuration.nix
           ];
         };
       };
+
       homeConfigurations = {
         "jordan@dev-pc" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             ./machines/dev-pc/home.nix
             catppuccin.homeManagerModules.catppuccin
           ];
         };
         "jordan@framework" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             ./machines/framework/home.nix
             catppuccin.homeManagerModules.catppuccin
