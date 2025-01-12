@@ -82,6 +82,15 @@
     #media-session.enable = true;
   };
 
+  # Docker
+  virtualisation.docker = {
+        enable = true;
+        rootless = {
+            enable = true;
+            setSocketVariable = true;
+        };
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -92,6 +101,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [ home-manager ];
@@ -112,6 +122,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
     mullvad-vpn
+    discord
     #  wget
 
     gnomeExtensions.worksets
