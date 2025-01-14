@@ -18,13 +18,20 @@
       catppuccin,
       ...
     }@inputs:
+    let
+      pkgsSource =
+        sys:
+        import nixpkgs {
+          system = sys;
+          config.allowUnfree = true;
+        };
+    in
     {
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./machines/framework/configuration.nix
-            ./machines/framework/hardware-configuration.nix
           ];
         };
 
@@ -32,21 +39,20 @@
           system = "x86_64-linux";
           modules = [
             ./machines/xps13/configuration.nix
-            ./machines/xps13/hardware-configuration.nix
           ];
         };
       };
 
       homeConfigurations = {
         "jordan@dev-pc" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          pkgs = pkgsSource "x86_64-linux";
           modules = [
             ./machines/dev-pc/home.nix
             catppuccin.homeManagerModules.catppuccin
           ];
         };
         "jordan@framework" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          pkgs = pkgsSource "x86_64-linux";
           modules = [
             ./machines/framework/home.nix
             catppuccin.homeManagerModules.catppuccin
