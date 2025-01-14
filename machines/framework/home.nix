@@ -1,6 +1,9 @@
 { pkgs, inputs, ... }:
 {
-  imports = [ ../../modules/desktop/cli ];
+  imports = [
+    ../../modules/desktop/cli
+    ../../modules/desktop/apps
+  ];
 
   home = {
     username = "jordan";
