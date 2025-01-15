@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  xdg.configFile."tmux/user.conf".source = config.lib.file.mkFlakeSymlink ../dotfiles/.tmux.conf;
+  xdg.configFile."tmux/user.conf".source = config.lib.file.mkFlakeSymlink ../../../dotfiles/.tmux.conf;
 
   programs.tmux = {
     enable = true;
