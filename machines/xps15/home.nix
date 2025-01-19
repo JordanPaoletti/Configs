@@ -36,10 +36,4 @@
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
-
-  dconf.settings = {
-    "org/gnome/mutter" = {
-      experimental-features = [ "scale-monitor-framebuffer" ];
-    };
-  };
 }

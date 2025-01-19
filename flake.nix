@@ -35,6 +35,13 @@
           ];
         };
 
+        xps15 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./machines/xps15/configuration.nix
+          ];
+        };
+
         xps13 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -48,6 +55,13 @@
           pkgs = pkgsSource "x86_64-linux";
           modules = [
             ./machines/dev-pc/home.nix
+            catppuccin.homeManagerModules.catppuccin
+          ];
+        };
+        "jordan@xps15" = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgsSource "x86_64-linux";
+          modules = [
+            ./machines/xps15/home.nix
             catppuccin.homeManagerModules.catppuccin
           ];
         };
