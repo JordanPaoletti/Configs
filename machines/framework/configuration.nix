@@ -134,14 +134,14 @@
   # Dynamically Loading libs
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    SDL
-    SDL2
-    SDL2_image
-    SDL2_mixer
-    SDL2_ttf
-    SDL_image
-    SDL_mixer
-    SDL_ttf
+    # SDL
+    # SDL2
+    # SDL2_image
+    # SDL2_mixer
+    # SDL2_ttf
+    # SDL_image
+    # SDL_mixer
+    # SDL_ttf
     alsa-lib
     at-spi2-atk
     at-spi2-core
