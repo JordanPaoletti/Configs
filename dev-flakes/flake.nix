@@ -1,6 +1,7 @@
 # Base template for creating basic dev environments with nix
 # flake.nix must be added to vcs for nix develop to see it
 # Run `echo "use flake" > .envrc` and then `direnv allow` if using direnv
+# Example templates https://github.com/the-nix-way/dev-templates
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

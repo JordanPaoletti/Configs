@@ -20,7 +20,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-9d646b34-8624-4f0e-a9a6-5232b6f873af".device = "/dev/disk/by-uuid/9d646b34-8624-4f0e-a9a6-5232b6f873af";
+  boot.initrd.luks.devices."luks-9d646b34-8624-4f0e-a9a6-5232b6f873af".device =
+    "/dev/disk/by-uuid/9d646b34-8624-4f0e-a9a6-5232b6f873af";
 
   networking.hostName = "framework"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
