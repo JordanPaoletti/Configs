@@ -97,6 +97,16 @@ require("lazy").setup({
           --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
           --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
         end,
+    },
+
+    -- Formatting
+    {
+        "stevearc/conform.nvim",
+        opts = {
+            formatters_by_ft = {
+                nixfmt
+            }
+        }
     }
 })
 
