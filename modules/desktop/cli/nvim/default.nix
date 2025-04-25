@@ -3,6 +3,8 @@
   home.packages = with pkgs; [
     tree-sitter
     gcc
+    nixd
+    nil
   ];
 
   programs.neovim = {

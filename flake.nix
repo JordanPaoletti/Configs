@@ -55,21 +55,21 @@
           pkgs = pkgsSource "x86_64-linux";
           modules = [
             ./machines/dev-pc/home.nix
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ];
         };
         "jordan@xps15" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsSource "x86_64-linux";
           modules = [
             ./machines/xps15/home.nix
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ];
         };
         "jordan@framework" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsSource "x86_64-linux";
           modules = [
             ./machines/framework/home.nix
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ];
         };
       };

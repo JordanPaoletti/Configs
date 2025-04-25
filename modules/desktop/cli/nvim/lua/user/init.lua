@@ -99,6 +99,26 @@ require("lazy").setup({
         end,
     },
 
+    -- LSPs
+    {
+        "neovim/nvim-lspconfig",
+        name = "lspconfig.nil_ls",
+        ft = { "nix" },
+        opts = {},
+        config = function(_, opts)
+            require("lspconfig").nil_ls.setup(opts)
+        end,
+    },
+    {
+        "neovim/nvim-lspconfig",
+        name = "lspconfig.nixd",
+        ft = { "nix" },
+        opts = {},
+        config = function(_, opts)
+            require("lspconfig").nixd.setup(opts)
+        end,
+    },
+
     -- Formatting
     {
         "stevearc/conform.nvim",
@@ -107,7 +127,7 @@ require("lazy").setup({
                 nixfmt
             }
         }
-    }
+    },
 })
 
 
