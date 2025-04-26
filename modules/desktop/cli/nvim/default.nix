@@ -1,12 +1,5 @@
 { config, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    tree-sitter
-    gcc
-    nixd
-    nil
-  ];
-
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -18,6 +11,15 @@
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
       nvim-treesitter
+    ];
+
+    extraPackages = with pkgs; [
+      tree-sitter
+      gcc
+
+      # language servers
+      nixd
+      nil
     ];
   };
 
