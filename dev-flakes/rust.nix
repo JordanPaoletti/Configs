@@ -8,7 +8,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
-      input.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs =
@@ -21,18 +21,8 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [
-            rust-overlay.overlays.default
-            self.overlays.default
-          ];
-        };
-      in
-      with pkgs;
-      {
-        overlays.default = final: prev: {
-          rustToolChain =
+        rustToolchain-overlay = final: prev: {
+          rustToolchain =
             let
               rust = prev.rust-bin;
             in
@@ -48,9 +38,18 @@
                 ];
               };
         };
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            rust-overlay.overlays.default
+            rustToolchain-overlay
+          ];
+        };
+      in
+      {
 
-        devShells.default = mkShell {
-          buildInputs = [
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
             rustToolchain
             openssl
             pkg-config
@@ -61,6 +60,7 @@
           ];
 
           env = {
+            # Required by rust-analyzer
             RUST_SRC_PATH = "${pkgs.rustToolchain}/lib/rustlib/arc/rust/library";
           };
         };
