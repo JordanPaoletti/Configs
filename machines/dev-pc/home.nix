@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [ ../../modules/desktop/cli ];
 
@@ -11,8 +11,13 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
 
-  # Nix related packages
-  home.packages = with pkgs; [ nixfmt-rfc-style ];
+  home.packages = with pkgs; [ 
+    # nix related packages
+    nixfmt-rfc-style 
+
+    # machine specific packages
+    jan
+  ];
 
   home.sessionVariables = { };
 
