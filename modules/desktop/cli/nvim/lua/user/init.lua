@@ -122,6 +122,16 @@ require("lazy").setup({
     -- Formatting
     {
         "stevearc/conform.nvim",
+        keys = {
+            {
+                "<leader>f",
+                function()
+                    require("conform").format({ async = true })
+                end,
+                mode = "",
+                desc = "Format Buffer",
+            },
+        },
         opts = {
             formatters_by_ft = {
                 nix = { "nixfmt" },
