@@ -16,7 +16,6 @@
     nixfmt-rfc-style 
 
     # machine specific packages
-    jan
   ];
 
   home.sessionVariables = { };
