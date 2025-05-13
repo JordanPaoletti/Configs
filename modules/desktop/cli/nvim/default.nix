@@ -20,6 +20,15 @@
       # language servers
       nixd
       nil
+      bash-language-server
+      lua-language-server
+      yaml-language-server
+
+      # formatters / linters
+      nixfmt-rfc-style
+      prettierd
+      stylua
+      shfmt
     ];
   };
 
