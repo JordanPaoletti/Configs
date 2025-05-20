@@ -1,1 +1,1 @@
-require("user.lazy")
+require("lazy").setup("user.plugins")
