@@ -23,12 +23,14 @@
       bash-language-server
       lua-language-server
       yaml-language-server
+      python313Packages.jedi-language-server
 
       # formatters / linters
       nixfmt-rfc-style
       prettierd
       stylua
       shfmt
+      black
     ];
   };
 

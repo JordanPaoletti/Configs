@@ -29,6 +29,15 @@ return {
 			require("lspconfig").nixd.setup(opts)
 		end,
 	},
+	{
+		"neovim/nvim-lspconfig",
+		name = "lspconfig.jedi_language_server",
+		ft = { "python" },
+		opts = {},
+		config = function(_, opts)
+			require("lspconfig").jedi_language_server.setup(opts)
+		end,
+	},
 
 	-- Diagnostics
 	{
