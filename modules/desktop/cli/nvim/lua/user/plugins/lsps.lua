@@ -1,42 +1,41 @@
 -- LSP lazyvim config
 return {
 	-- LSPs
-	-- see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+    -- see: https://github.com/neovim/nvim-lspconfig
+	-- servers: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 	{
 		"neovim/nvim-lspconfig",
-		name = "lspconfig.lua_ls",
-		ft = { "lua" },
-		opts = {},
-		config = function(_, opts)
-			require("lspconfig").lua_ls.setup(opts)
+		config = function()
+			local server_settings = {
+				lua_ls = {},
+				nil_ls = {},
+				nixd = {},
+				jedi_language_server = {},
+			}
+
+			for server, settings in pairs(server_settings) do
+				vim.lsp.enable(server)
+			end
 		end,
 	},
+
+	-- Navigation
 	{
-		"neovim/nvim-lspconfig",
-		name = "lspconfig.nil_ls",
-		ft = { "nix" },
-		opts = {},
-		config = function(_, opts)
-			require("lspconfig").nil_ls.setup(opts)
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		name = "lspconfig.nixd",
-		ft = { "nix" },
-		opts = {},
-		config = function(_, opts)
-			require("lspconfig").nixd.setup(opts)
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		name = "lspconfig.jedi_language_server",
-		ft = { "python" },
-		opts = {},
-		config = function(_, opts)
-			require("lspconfig").jedi_language_server.setup(opts)
-		end,
+		"stevearc/aerial.nvim",
+		opts = {
+			backends = { "lsp", "treesitter", "markdown" },
+		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+		keys = {
+			{
+				"<leader><leader>a",
+				"<cmd>AerialToggle!<CR>",
+				desc = "Toggle Aerial Navigation Window",
+			},
+		},
 	},
 
 	-- Diagnostics
