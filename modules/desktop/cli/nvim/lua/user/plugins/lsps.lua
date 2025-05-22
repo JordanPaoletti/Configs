@@ -5,7 +5,19 @@ return {
 	-- servers: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 	{
 		"neovim/nvim-lspconfig",
+        lazy = false,
+        dependencies = {
+            -- coq: https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#lazynvim
+            { "ms-jpq/coq_nvim", branch = "coq" }, -- main
+            { "ms-jpq/coq.artifacts", branch = "artifacts" }, -- snippets
+        },
+        init = function()
+            vim.g.coq_settings = {
+                auto_start = true,
+            }
+        end,
 		config = function()
+            local coq = require("coq")
 			local server_settings = {
 				lua_ls = {},
 				nil_ls = {},
@@ -14,7 +26,8 @@ return {
 			}
 
 			for server, settings in pairs(server_settings) do
-				vim.lsp.enable(server)
+                vim.lsp.config(server, coq)
+				vim.lsp.enable(server, coq.lsp_ensure_capabilities(settings))
 			end
 		end,
 	},
