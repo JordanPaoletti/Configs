@@ -11,11 +11,12 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     # nix related packages
-    nixfmt-rfc-style 
+    nixfmt-rfc-style
 
     # machine specific packages
+    discord
   ];
 
   home.sessionVariables = { };
