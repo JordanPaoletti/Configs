@@ -48,6 +48,13 @@
             ./machines/xps13/configuration.nix
           ];
         };
+
+        dev-pc = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./machines/dev-pc/configuration.nix
+          ];
+        };
       };
 
       homeConfigurations = {
