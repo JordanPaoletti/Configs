@@ -108,6 +108,15 @@
     pulse.enable = true;
   };
 
+  # Docker
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jordan = {
     isNormalUser = true;
