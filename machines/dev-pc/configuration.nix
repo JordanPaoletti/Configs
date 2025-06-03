@@ -21,6 +21,18 @@
     "flakes"
   ];
 
+  # List packages installed in system profile.
+  # You can use https://search.nixos.org/ to find more packages (and options).
+  environment.systemPackages = with pkgs; [
+    # Utility
+    vim 
+    wget
+    git
+
+    # Nvidia
+    cudatoolkit
+  ];
+
   ### Nvidia setup
   # Based on https://nixos.wiki/wiki/Nvidia
   # Enable OpenGL
@@ -30,6 +42,14 @@
 
   # Load nvidia driver for xorg and wayland
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  # Potentially needed for cuda
+  # ref: https://github.com/grahamc/nixos-cuda-example/blob/master/configuration.nix
+  systemd.services.nvidia-control-devices = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
+  };
+
 
   hardware.nvidia = {
     # modesetting is required
@@ -59,6 +79,12 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  # Enable nvidia container toolkit
+  # ref: https://github.com/suvash/nixos-nvidia-cuda-python-docker-compose/blob/main/02-nixos-docker-nvidia-setup.org
+  hardware.nvidia-container-toolkit = {
+    enable =  true;
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -140,13 +166,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
