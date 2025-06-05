@@ -17,6 +17,7 @@
 
     # machine specific packages
     discord
+    spotify
   ];
 
   home.sessionVariables = { };

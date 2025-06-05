@@ -7,7 +7,7 @@
       enable = true;
     };
 
-    initExtra = ''
+    initContent = ''
       bindkey -M viins 'jk' vi-cmd-mode
       . ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
 
