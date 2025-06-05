@@ -16,6 +16,7 @@
     extraPackages = with pkgs; [
       tree-sitter
       gcc
+      ripgrep
 
       # language servers
       nixd
