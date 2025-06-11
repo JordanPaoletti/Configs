@@ -113,8 +113,12 @@
   services.xserver.enable = true;
 
   # GNOME
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
+  # Gnome occasionally fails to load the desktop from boot.
+  # Trying: https://discourse.nixos.org/t/gnome-session-sometimes-fails-to-load-after-login-unless-wifi-is-disabled-from-login-screen/38771/2
+  services.tlp.settings.DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth";
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -126,7 +130,7 @@
   services.printing.enable = true;
 
   # Enable sound (pipewire)
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
