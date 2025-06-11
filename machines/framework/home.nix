@@ -16,13 +16,13 @@
 
   home.packages = with pkgs; [
     # Nix related packages
-    nixfmt-rfc-style 
+    nixfmt-rfc-style
 
     # machine specific packages
     zip
     unzip
     caligula
-    
+
   ];
 
   home.sessionVariables = { };

@@ -25,7 +25,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     # Utility
-    vim 
+    vim
     wget
     git
 
@@ -49,7 +49,6 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
   };
-
 
   hardware.nvidia = {
     # modesetting is required
@@ -85,7 +84,7 @@
   # Enable nvidia container toolkit
   # ref: https://github.com/suvash/nixos-nvidia-cuda-python-docker-compose/blob/main/02-nixos-docker-nvidia-setup.org
   hardware.nvidia-container-toolkit = {
-    enable =  true;
+    enable = true;
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -170,7 +169,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
