@@ -40,6 +40,12 @@
     enable = true;
   };
 
+  # https://nixos.wiki/wiki/Fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
+
   # Load nvidia driver for xorg and wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
