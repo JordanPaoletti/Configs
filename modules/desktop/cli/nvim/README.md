@@ -2,6 +2,22 @@
 
 ## Plugin Keys
 
+### Org Mode
+[ref](https://nvim-orgmode.github.io/configuration#mappings)
+
+in org files:
+* `<leader>o,` - change priority of headline item
+* `cir` - priority down
+* `ciR` - priority up
+* `cit` - cycle todo next
+* `ciT` - cycle todo prev
+* `<C-Space>` - toggle checkbox
+* `<TAB>` - toggle folding for headline
+* `<S-TAB>` - toggle global folding
+* `<leader>ot` - set tags on headline
+* `<<` - promote headline
+* `>>` - demote headline
+
 ### File Tree
 
 * `<leader>t` - toggle file tree window
