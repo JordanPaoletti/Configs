@@ -11,17 +11,11 @@
   home.packages = with pkgs; [
     # cli apps
     xclip
-    deno
-    asdf-vm
     kubectl
     kubernetes-helm
     tree
-    certbot
     qmk
     just
-
-    # SDK / Frameworks
-    # texliveFull
   ];
 
   home.file = {
