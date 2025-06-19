@@ -32,6 +32,9 @@
       stylua
       shfmt
       black
+
+      # Debuggers
+      python313Packages.debugpy
     ];
   };
 

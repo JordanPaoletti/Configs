@@ -18,8 +18,9 @@ in org files:
 * `<<` - promote headline
 * `>>` - demote headline
 
-### File Tree
-
+### Nvim Tree
+[github](https://github.com/nvim-tree/nvim-tree.lua)
+`help nvim-tree-mappings-default`
 * `<leader>t` - toggle file tree window
 
 ### Telescope
@@ -42,3 +43,10 @@ in org files:
 * `<leader>xX` - toggle diagnostics window for open buffer
 * `<leader>cs` - toggle trouble symbols window
 
+### DAP debugger
+[github](https://github.com/mfussenegger/nvim-dap)
+* `<leader>db` - Toggle Breakpoint
+* `<leader>dc` - Launch Session or resume execution
+* `<leader>ds` - step over
+* `<leader>di` - step into
+* `<leader>do` - open inspection window
