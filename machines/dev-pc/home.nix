@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ../../modules/desktop/cli ];
+  imports = [
+    ../../modules/desktop/cli
+    ../../modules/desktop/apps
+  ];
 
   home = {
     username = "jordan";
@@ -16,8 +19,6 @@
     nixfmt-rfc-style
 
     # machine specific packages
-    discord
-    spotify
   ];
 
   home.sessionVariables = { };
