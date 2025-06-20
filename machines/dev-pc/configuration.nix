@@ -33,6 +33,10 @@
     cudatoolkit
   ];
 
+  # shebang compat
+  # https://unix.stackexchange.com/questions/632053/how-to-get-bin-bash-on-nixos
+  services.envfs.enable = true;
+
   ### Nvidia setup
   # Based on https://nixos.wiki/wiki/Nvidia
   # Enable OpenGL
