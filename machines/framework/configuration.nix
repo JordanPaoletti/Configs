@@ -16,6 +16,15 @@
     "flakes"
   ];
 
+  # shebang compat
+  # https://unix.stackexchange.com/questions/632053/how-to-get-bin-bash-on-nixos
+  services.envfs.enable = true;
+
+  # https://nixos.wiki/wiki/Fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
