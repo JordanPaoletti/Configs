@@ -42,6 +42,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable Tailscale 
+  services.tailscale.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
