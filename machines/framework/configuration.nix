@@ -142,6 +142,10 @@
     gnomeExtensions.worksets
   ];
 
+  programs.steam = {
+    enable = true;
+  };
+
   services.mullvad-vpn.enable = true;
 
   # Dynamically Loading libs
