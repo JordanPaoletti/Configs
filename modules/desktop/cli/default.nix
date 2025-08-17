@@ -16,6 +16,7 @@
     tree
     qmk
     just
+    unzip
   ];
 
   home.file = {
