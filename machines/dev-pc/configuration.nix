@@ -28,6 +28,7 @@
     vim
     wget
     git
+    caffeine-ng
 
     # Nvidia
     cudatoolkit
