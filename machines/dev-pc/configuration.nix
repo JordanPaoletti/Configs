@@ -28,7 +28,7 @@
     vim
     wget
     git
-    caffeine-ng
+    gnomeExtensions.caffeine
 
     # Nvidia
     cudatoolkit
