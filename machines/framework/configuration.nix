@@ -8,7 +8,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/nixos/general-configuration.nix
+    ../../modules/nixos/general-config.nix
     ../../modules/nixos/intellij-dlls.nix
   ];
 
