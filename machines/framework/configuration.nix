@@ -8,105 +8,21 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/nixos/general-configuration.nix
+    ../../modules/nixos/intellij-dlls.nix
   ];
 
-  # Experimental Features
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
+  environment.systemPackages = with pkgs; [
+    mullvad-vpn
+
+    gnomeExtensions.worksets
   ];
 
-  # shebang compat
-  # https://unix.stackexchange.com/questions/632053/how-to-get-bin-bash-on-nixos
-  services.envfs.enable = true;
-
-  # https://nixos.wiki/wiki/Fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.initrd.luks.devices."luks-9d646b34-8624-4f0e-a9a6-5232b6f873af".device =
-    "/dev/disk/by-uuid/9d646b34-8624-4f0e-a9a6-5232b6f873af";
-
-  networking.hostName = "framework"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Enable Tailscale 
-  services.tailscale.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # GNOME related https://nixos.wiki/wiki/GNOME
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
+  programs.steam = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  # Docker
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.mullvad-vpn.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jordan = {
@@ -121,151 +37,28 @@
     packages = with pkgs; [ home-manager ];
   };
 
-  # Enable ZSH systemwide
-  programs.zsh.enable = true;
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  boot.initrd.luks.devices."luks-9d646b34-8624-4f0e-a9a6-5232b6f873af".device =
+    "/dev/disk/by-uuid/9d646b34-8624-4f0e-a9a6-5232b6f873af";
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Enable networking
+  networking.hostName = "framework"; # Define your hostname.
+  networking.networkmanager.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
-    mullvad-vpn
-    discord
-    #  wget
+  # Enable Tailscale
+  services.tailscale.enable = true;
 
-    gnomeExtensions.worksets
-  ];
-
-  programs.steam = {
+  # Docker
+  virtualisation.docker = {
     enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
-
-  services.mullvad-vpn.enable = true;
-
-  # Dynamically Loading libs
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # SDL
-    # SDL2
-    # SDL2_image
-    # SDL2_mixer
-    # SDL2_ttf
-    # SDL_image
-    # SDL_mixer
-    # SDL_ttf
-    alsa-lib
-    at-spi2-atk
-    at-spi2-core
-    atk
-    bzip2
-    cairo
-    cups
-    curlWithGnuTls
-    dbus
-    dbus-glib
-    desktop-file-utils
-    e2fsprogs
-    expat
-    flac
-    fontconfig
-    freeglut
-    freetype
-    fribidi
-    fuse
-    fuse3
-    gdk-pixbuf
-    glew110
-    glib
-    gmp
-    gst_all_1.gst-plugins-base
-    gst_all_1.gst-plugins-ugly
-    gst_all_1.gstreamer
-    gtk2
-    harfbuzz
-    icu
-    keyutils.lib
-    libGL
-    libGLU
-    libappindicator-gtk2
-    libcaca
-    libcanberra
-    libcap
-    libclang.lib
-    libdbusmenu
-    libdrm
-    libgcrypt
-    libgpg-error
-    libidn
-    libjack2
-    libjpeg
-    libmikmod
-    libogg
-    libpng12
-    libpulseaudio
-    librsvg
-    libsamplerate
-    libthai
-    libtheora
-    libtiff
-    libudev0-shim
-    libusb1
-    libuuid
-    libvdpau
-    libvorbis
-    libvpx
-    libxcrypt-legacy
-    libxkbcommon
-    libxml2
-    libsecret
-    mesa
-    nspr
-    nss
-    openssl
-    p11-kit
-    pango
-    pixman
-    python3
-    speex
-    stdenv.cc.cc
-    tbb
-    udev
-    vulkan-loader
-    wayland
-    xorg.libICE
-    xorg.libSM
-    xorg.libX11
-    xorg.libXScrnSaver
-    xorg.libXcomposite
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXft
-    xorg.libXi
-    xorg.libXinerama
-    xorg.libXmu
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXt
-    xorg.libXtst
-    xorg.libXxf86vm
-    xorg.libpciaccess
-    xorg.libxcb
-    xorg.xcbutil
-    xorg.xcbutilimage
-    xorg.xcbutilkeysyms
-    xorg.xcbutilrenderutil
-    xorg.xcbutilwm
-    xorg.xkeyboardconfig
-    xz
-    zlib
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
