@@ -17,6 +17,7 @@
     qmk
     just
     unzip
+    httpie
   ];
 
   home.file = {
