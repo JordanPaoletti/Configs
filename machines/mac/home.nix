@@ -7,8 +7,11 @@
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "paoletjo";
-  home.homeDirectory = "/Users/paoletjo";
+  home = {
+    username = "paoletjo";
+    homeDirectory = "/Users/paoletjo";
+    flakePath = "/Users/paoletjo/.config/home-manager";
+  };
 
   home.packages = with pkgs; [
     nixfmt-rfc-style
