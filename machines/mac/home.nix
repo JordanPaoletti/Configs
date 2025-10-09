@@ -12,8 +12,13 @@
 
   home.packages = with pkgs; [
     nixfmt-rfc-style
+    luajit
     luajitPackages.luarocks
   ];
+
+  programs.zsh.initContent = ''
+    eval "$(luarocks path --bin)"
+  '';
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "25.05";
