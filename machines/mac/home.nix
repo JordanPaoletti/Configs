@@ -17,6 +17,9 @@
     nixfmt-rfc-style
     luajit
     luajitPackages.luarocks
+
+    jdk
+    leiningen
   ];
 
   programs.zsh.initContent = ''
