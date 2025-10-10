@@ -25,6 +25,7 @@
       lua-language-server
       yaml-language-server
       python313Packages.jedi-language-server
+      clojure-lsp
 
       # formatters / linters
       nixfmt-rfc-style
