@@ -18,6 +18,12 @@
     just
     unzip
     httpie
+
+    # More dev related
+    luajit
+    luajitPackages.luarocks
+    jdk
+    leiningen
   ];
 
   home.file = {
