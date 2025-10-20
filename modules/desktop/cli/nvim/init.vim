@@ -33,6 +33,7 @@ set autoread
 
 "map leader
 let mapleader = ","
+let maplocalleader = " "
 
 "quick saving
 nmap <leader>w :w!<cr>
