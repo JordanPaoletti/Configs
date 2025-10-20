@@ -9,11 +9,6 @@
 
     initContent = ''
       bindkey -M viins 'jk' vi-cmd-mode
-      . ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
-
-      if [ -f /home/$USER/.asdf/plugins/java/set-java-home.zsh ]; then
-          . /home/$USER/.asdf/plugins/java/set-java-home.zsh
-      fi
 
       eval "$(luarocks path --bin)"
     '';
