@@ -14,13 +14,6 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
 
-  home.packages = with pkgs; [
-    # nix related packages
-    nixfmt-rfc-style
-
-    # machine specific packages
-  ];
-
   home.sessionVariables = { };
 
   # Nicely reload system units when changing configs

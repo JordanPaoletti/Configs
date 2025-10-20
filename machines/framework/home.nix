@@ -15,14 +15,10 @@
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
-    # Nix related packages
-    nixfmt-rfc-style
-
     # machine specific packages
     zip
     unzip
     caligula
-
   ];
 
   home.sessionVariables = { };

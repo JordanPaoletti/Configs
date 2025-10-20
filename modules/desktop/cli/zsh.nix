@@ -14,12 +14,13 @@
       if [ -f /home/$USER/.asdf/plugins/java/set-java-home.zsh ]; then
           . /home/$USER/.asdf/plugins/java/set-java-home.zsh
       fi
+
+      eval "$(luarocks path --bin)"
     '';
 
     envExtra = ''
       export PATH="/home/$USER/.deno/bin:$PATH"
       export PATH="/home/$USER/.local/bin:$PATH"
-      export PATH="/Users/$USER/.local/bin:$PATH"
     '';
 
     sessionVariables = {

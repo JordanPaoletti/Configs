@@ -13,12 +13,9 @@
     flakePath = "/Users/paoletjo/.config/home-manager";
   };
 
-  home.packages = with pkgs; [
-    nixfmt-rfc-style
-  ];
-
-  programs.zsh.initContent = ''
-    eval "$(luarocks path --bin)"
+  programs.zsh.envExtra = ''
+      export PATH="/Users/$USER/.local/bin:$PATH"
+      export PATH="/Users/$USER/.toolbox/bin:$PATH"
   '';
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

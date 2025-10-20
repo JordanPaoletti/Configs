@@ -18,6 +18,7 @@
     just
     unzip
     httpie
+    nixfmt-rfc-style
 
     # More dev related
     luajit
