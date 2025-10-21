@@ -13,10 +13,16 @@
     flakePath = "/Users/paoletjo/.config/home-manager";
   };
 
-  programs.zsh.envExtra = ''
+  programs.zsh = {
+    envExtra = ''
       export PATH="/Users/$USER/.local/bin:$PATH"
       export PATH="/Users/$USER/.toolbox/bin:$PATH"
-  '';
+    '';
+    initContent = ''
+      source ~/.brazil_completion/zsh_completion
+    '';
+
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "25.05";
