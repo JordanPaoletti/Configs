@@ -20,6 +20,7 @@
     '';
     initContent = ''
       source ~/.brazil_completion/zsh_completion
+      eval $(brew shellenv)
     '';
 
   };
