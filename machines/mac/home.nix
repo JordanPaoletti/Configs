@@ -13,6 +13,10 @@
     flakePath = "/Users/paoletjo/.config/home-manager";
   };
 
+  home.packages = with pkgs; [
+    poetry
+  ];
+
   programs.zsh = {
     envExtra = ''
       export PATH="/Users/$USER/.local/bin:$PATH"
