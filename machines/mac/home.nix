@@ -22,6 +22,7 @@
     envExtra = ''
       export PATH="/Users/$USER/.local/bin:$PATH"
       export PATH="/Users/$USER/.toolbox/bin:$PATH"
+      export PATH="/Users/$USER/dev/scripts/shell:$PATH"
     '';
     initContent = ''
       source ~/.brazil_completion/zsh_completion
