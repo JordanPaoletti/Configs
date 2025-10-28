@@ -15,7 +15,6 @@
 
   home.packages = with pkgs; [
     poetry
-    nodejs_24
   ];
 
   programs.zsh = {
