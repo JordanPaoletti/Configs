@@ -11,6 +11,9 @@
       bindkey -M viins 'jk' vi-cmd-mode
 
       eval "$(luarocks path --bin)"
+
+      # easily invoke a shell with a package from nixpkgs
+      function nshell () { nix shell nixpkgs#$1 }
     '';
 
     envExtra = ''
