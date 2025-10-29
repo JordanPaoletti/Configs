@@ -35,6 +35,11 @@ return {
 		end,
 	},
 
+    -- language support
+    {
+        "hylang/vim-hy",
+    },
+
 	-- Navigation
 	{
 		"stevearc/aerial.nvim",
