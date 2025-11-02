@@ -25,6 +25,7 @@ return {
 				lua_ls = {},
 				nil_ls = {},
 				nixd = {},
+                clojure = {},
 				jedi_language_server = {},
 			}
 
