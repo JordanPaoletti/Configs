@@ -60,5 +60,19 @@ return {
 				})
 			end,
 		},
+		-- other utility
+		{
+			"windwp/nvim-autopairs",
+			event = "InsertEnter",
+			config = true,
+			-- use opts = {} for passing setup options
+			-- this is equivalent to setup({}) function
+		},
+		{
+			"julienvincent/nvim-paredit",
+			config = function()
+				require("nvim-paredit").setup()
+			end,
+		},
 	},
 }
