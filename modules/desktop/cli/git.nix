@@ -8,9 +8,11 @@
 {
   programs.git = {
     enable = true;
-    userName = "Jordan Paoletti";
-    userEmail = "jordanspaoletti@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Jordan Paoletti";
+        email = "jordanspaoletti@gmail.com";
+      };
       push = {
         autoSetupRemote = true;
       };
