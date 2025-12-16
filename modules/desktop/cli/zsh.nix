@@ -10,7 +10,9 @@
     initContent = ''
       bindkey -M viins 'jk' vi-cmd-mode
 
-      eval "$(luarocks path --bin)"
+      if command -v luarocks &> /dev/null; then
+        eval "$(luarocks path --bin)"
+      fi
 
       # easily invoke a shell with a package from nixpkgs
       function nshell () { nix shell nixpkgs#$1 }

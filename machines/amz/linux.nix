@@ -9,8 +9,8 @@
   # manage.
   home = {
     username = "paoletjo";
-    homeDirectory = "/Users/paoletjo";
-    flakePath = "/Users/paoletjo/.config/home-manager";
+    homeDirectory = "/home/paoletjo";
+    flakePath = "/home/paoletjo/.config/home-manager";
   };
 
   home.packages = with pkgs; [
@@ -19,13 +19,19 @@
 
   programs.zsh = {
     envExtra = ''
-      export PATH="/Users/$USER/.local/bin:$PATH"
-      export PATH="/Users/$USER/.toolbox/bin:$PATH"
-      export PATH="/Users/$USER/dev/scripts/shell:$PATH"
+      export PATH="/home/$USER/.local/bin:$PATH"
+      export PATH="/home/$USER/.toolbox/bin:$PATH"
+      export PATH="/home/$USER/dev/scripts/shell:$PATH"
     '';
+
+    shellAliases = {
+      bb = "brazil-build";
+      bbr = "brazil-build release";
+    };
+
     initContent = ''
       source ~/.brazil_completion/zsh_completion
-      eval $(brew shellenv)
+      source ~/.nix-profile/etc/profile.d/nix.sh
 
       # setup nvm
       export NVM_DIR="$HOME/.nvm"
