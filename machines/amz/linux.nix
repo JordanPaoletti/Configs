@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
     ../../modules/desktop/cli
+    ./common.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -13,21 +14,12 @@
     flakePath = "/home/paoletjo/.config/home-manager";
   };
 
-  home.packages = with pkgs; [
-    poetry
-  ];
-
   programs.zsh = {
     envExtra = ''
       export PATH="/home/$USER/.local/bin:$PATH"
       export PATH="/home/$USER/.toolbox/bin:$PATH"
       export PATH="/home/$USER/dev/scripts/shell:$PATH"
     '';
-
-    shellAliases = {
-      bb = "brazil-build";
-      bbr = "brazil-build release";
-    };
 
     initContent = ''
       source ~/.brazil_completion/zsh_completion
