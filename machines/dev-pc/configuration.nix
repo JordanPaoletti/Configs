@@ -22,6 +22,9 @@
     cudatoolkit
   ];
 
+  services.mullvad-vpn.enable = true;
+
+
   ### Nvidia setup
   # Based on https://nixos.wiki/wiki/Nvidia
   # Enable OpenGL

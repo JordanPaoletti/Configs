@@ -13,8 +13,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    mullvad-vpn
-
     gnomeExtensions.worksets
   ];
 
