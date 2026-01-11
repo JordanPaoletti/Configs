@@ -19,6 +19,7 @@
     unzip
     httpie
     nixfmt-rfc-style
+    goose-cli
 
     # More dev related
     luajit
