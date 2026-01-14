@@ -22,6 +22,7 @@
     goose-cli
 
     # More dev related
+    bun
     luajit
     luajitPackages.luarocks
     jdk
