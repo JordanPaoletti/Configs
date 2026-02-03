@@ -55,6 +55,14 @@
             ./machines/dev-pc/configuration.nix
           ];
         };
+
+        music = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./machines/music/configuration.nix
+          ];
+        };
+
       };
 
       homeConfigurations = {
@@ -76,6 +84,13 @@
           pkgs = pkgsSource "x86_64-linux";
           modules = [
             ./machines/framework/home.nix
+            catppuccin.homeModules.catppuccin
+          ];
+        };
+        "jordan@music" = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgsSource "x86_64-linux";
+          modules = [
+            ./machines/music/home.nix
             catppuccin.homeModules.catppuccin
           ];
         };
