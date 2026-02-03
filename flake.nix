@@ -9,6 +9,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    musnix = {
+      url = "github:musnix/musnix";
+    };
   };
 
   outputs =
@@ -60,6 +63,7 @@
           system = "x86_64-linux";
           modules = [
             ./machines/music/configuration.nix
+            inputs.musnix.nixosModules.musnix
           ];
         };
 

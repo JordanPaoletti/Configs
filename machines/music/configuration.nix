@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  musnix,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -66,7 +71,11 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
+
+  # Sound Configuration
+
+  # musnix.enable = true;
+
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -74,13 +83,28 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    # jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    # wireplumber = {
+    #   enable = true;
+    #   package = pkgs.wireplumber;
+    # };
   };
+
+  # List packages installed in system profile. To search, run:
+  environment.systemPackages = with pkgs; [
+
+    # audio related
+    # libjack2
+    # jack2
+    # qjackctl
+    # pavucontrol
+    # jack_capture
+    # alsa-scarlett-gui
+
+    # Apps
+    # ardour
+  ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -93,10 +117,13 @@
       "networkmanager"
       "wheel"
     ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
-      #  thunderbird
     ];
   };
+
+  # Enable Zsh systemwide
+  programs.zsh.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -111,11 +138,6 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  # List packages installed in system profile. To search, run:
-  environment.systemPackages = with pkgs; [
-    vim
-    git
-  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
