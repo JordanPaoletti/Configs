@@ -99,7 +99,10 @@
     # jack2
     # qjackctl
     # jack_capture
+
     # alsa-scarlett-gui
+    # https://github.com/geoffreybennett/alsa-scarlett-gui
+    alsa-scarlett-gui
 
     # pavucontrol
     # https://discourse.nixos.org/t/usb-audio-interface-not-recognized/35159
