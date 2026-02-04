@@ -98,9 +98,13 @@
     # libjack2
     # jack2
     # qjackctl
-    # pavucontrol
     # jack_capture
     # alsa-scarlett-gui
+
+    # pavucontrol
+    # https://discourse.nixos.org/t/usb-audio-interface-not-recognized/35159
+    # pulseaudio volume control
+    pavucontrol
 
     # Apps
     # ardour
