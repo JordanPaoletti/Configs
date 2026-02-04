@@ -104,6 +104,7 @@
     # pavucontrol
     # https://discourse.nixos.org/t/usb-audio-interface-not-recognized/35159
     # pulseaudio volume control
+    # Switching scarlett to direct usb seems to get audio working at cost of not having any other channels
     pavucontrol
 
     # Apps
