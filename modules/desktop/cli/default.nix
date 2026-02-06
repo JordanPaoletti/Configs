@@ -23,6 +23,7 @@
 
     # More dev related
     bun
+    nodejs
     luajit
     luajitPackages.luarocks
     jdk
