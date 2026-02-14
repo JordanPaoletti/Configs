@@ -83,7 +83,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # kernel 6.19 is having issues with nvidia driver, use 18
+  # see: https://github.com/NixOS/nixpkgs/issues/489947
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
 
   # Enable Networking
   networking.hostName = "dev-pc"; # Define your hostname.
