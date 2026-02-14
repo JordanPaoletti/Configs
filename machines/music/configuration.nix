@@ -71,7 +71,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-
   # Sound Configuration
 
   # musnix.enable = true;
@@ -137,7 +136,6 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
