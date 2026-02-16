@@ -98,7 +98,7 @@
             catppuccin.homeModules.catppuccin
           ];
         };
-        "paoletjo@7cf34de1a6e1" = home-manager.lib.homeManagerConfiguration {
+        "paoletjo@80a9973215b3" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsSource "aarch64-darwin";
           modules = [
             ./machines/amz/mac.nix

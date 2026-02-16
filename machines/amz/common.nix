@@ -3,8 +3,8 @@
   imports = [ ];
 
   home.packages = with pkgs; [
-    poetry
-    uv
+#    poetry
+#    uv
   ];
 
   programs.zsh = {
