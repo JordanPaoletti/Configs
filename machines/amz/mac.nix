@@ -1,9 +1,10 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
     ../../modules/desktop/cli
     ./common.nix
+    ../../modules/lib
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -43,4 +44,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.file = {
+    ".hammerspoon/init.lua".source = config.lib.file.mkFlakeSymlink ../../dotfiles/.hammerspoon-init.lua;
+  };
+  
 }
