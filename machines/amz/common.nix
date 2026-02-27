@@ -3,8 +3,8 @@
   imports = [ ];
 
   home.packages = with pkgs; [
-   poetry
-   uv
+    poetry
+    uv
   ];
 
   programs.git = {
@@ -13,6 +13,9 @@
       user = {
         name = lib.mkForce "Jordan Paoletti";
         email = lib.mkForce "paoletjo@amazon.com";
+      };
+      pull = {
+        rebase = true;
       };
     };
   };

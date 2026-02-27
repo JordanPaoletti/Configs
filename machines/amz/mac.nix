@@ -46,7 +46,8 @@
   programs.home-manager.enable = true;
 
   home.file = {
-    ".hammerspoon/init.lua".source = config.lib.file.mkFlakeSymlink ../../dotfiles/.hammerspoon-init.lua;
+    ".hammerspoon/init.lua".source =
+      config.lib.file.mkFlakeSymlink ../../dotfiles/.hammerspoon-init.lua;
   };
-  
+
 }
