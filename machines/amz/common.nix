@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     poetry
     uv
+    ruby_3_4
   ];
 
   programs.git = {
@@ -24,6 +25,7 @@
     shellAliases = {
       bb = "brazil-build";
       bbr = "brazil-build release";
+      edbb = "eda build brazil-build";
     };
   };
 }
