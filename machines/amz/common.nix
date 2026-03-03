@@ -24,7 +24,9 @@
   programs.zsh = {
     shellAliases = {
       bb = "brazil-build";
+      bbc = "brazil-build clean";
       bbr = "brazil-build release";
+      bsync = "brazil ws sync";
       edbb = "eda build brazil-build";
     };
   };
