@@ -6,6 +6,7 @@
     poetry
     uv
     ruby_3_4
+    python3
   ];
 
   programs.git = {
