@@ -7,6 +7,7 @@
     uv
     ruby_3_4
     python3
+    pipx
   ];
 
   programs.git = {
