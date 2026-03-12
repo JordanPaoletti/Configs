@@ -55,6 +55,10 @@ nnoremap <leader>U g~iw
 nnoremap <leader>u g~iwe
 nnoremap <leader>ev :tabedit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
+vnoremap <leader>y "+y
+vnoremap <leader>p "+p
 
 
 """""""""""""""""""""""""""""""""""""""""
