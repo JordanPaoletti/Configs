@@ -23,3 +23,20 @@ hs.hotkey.bind(hyper, "a", function() moveWindow({0, 0, 0.5, 1}) end)
 hs.hotkey.bind(hyper, "d", function() moveWindow({0.5, 0, 0.5, 1}) end)
 hs.hotkey.bind(hyper, "e", function() moveScreen(1) end)
 hs.hotkey.bind(hyper, "q", function() moveScreen(-1) end)
+
+local function moveToSpace(dir)
+    local screen = hs.screen.mainScreen()
+    local spaces = hs.spaces.spacesForScreen(screen)
+    local current = hs.spaces.focusedSpace()
+    for i, sid in ipairs(spaces) do
+        if sid == current then
+            local target = spaces[i + dir]
+            if target then hs.spaces.gotoSpace(target) end
+            return
+        end
+    end
+end
+
+hs.hotkey.bind(hyper, "t", function() moveToSpace(1) end)
+hs.hotkey.bind(hyper, "r", function() moveToSpace(-1) end)
+hs.hotkey.bind(hyper, "g", function() hs.spaces.toggleMissionControl() end)
