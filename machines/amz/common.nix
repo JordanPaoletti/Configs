@@ -30,6 +30,7 @@
       bbr = "brazil-build release";
       bsync = "brazil ws sync";
       edbb = "eda build brazil-build";
+      kk = "kiro-cli --classic";
     };
   };
 }
