@@ -20,6 +20,7 @@
     httpie
     nixfmt-rfc-style
     goose-cli
+    sesh
 
     # More dev related
     bun
