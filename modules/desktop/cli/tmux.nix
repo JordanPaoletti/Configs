@@ -23,22 +23,22 @@
       set -g @catppuccin_window_left_separator ""
       set -g @catppuccin_window_right_separator " "
       set -g @catppuccin_window_middle_separator " █"
-      # set -g @catppuccin_window_number_position "right"
-      #
-      # set -g @catppuccin_window_default_fill "number"
-      #
-      # set -g @catppuccin_window_current_fill "number"
+      set -g @catppuccin_window_number_position "right"
+     
+      set -g @catppuccin_window_default_fill "number"
       
-      # set -g @catppuccin_status_modules_right "directory user host session"
+      set -g @catppuccin_window_current_fill "number"
+      
+      set -g @catppuccin_status_modules_right "directory user host session"
       set -g @catppuccin_status_left_separator  " "
       set -g @catppuccin_status_right_separator ""
-      # set -g @catppuccin_status_fill "icon"
-      # set -g @catppuccin_status_connect_separator "no"
+      set -g @catppuccin_status_fill "icon"
+      set -g @catppuccin_status_connect_separator "no"
 
-      # set -g @catppuccin_directory_text "#{pane_current_path}"
+      set -g @catppuccin_directory_text "#{pane_current_path}"
 
       # sesh integration
-      bind-key "T" run-shell "sesh connect \"$(
+      bind-key t run-shell "sesh connect \"$(
         sesh list --icons | fzf-tmux -p 80%,70% \
           --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
           --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
