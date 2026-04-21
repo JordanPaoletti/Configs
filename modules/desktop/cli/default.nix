@@ -19,7 +19,7 @@
     unzip
     httpie
     nixfmt-rfc-style
-    goose-cli
+    # goose-cli
     sesh
 
     # More dev related
