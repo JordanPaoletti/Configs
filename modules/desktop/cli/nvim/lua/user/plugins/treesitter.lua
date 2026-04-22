@@ -21,7 +21,7 @@ return {
 		},
 		lazy = false,
 		opts = {
-			auto_install = true,
+			auto_install = false,
 			highlight = { enable = true },
 			indent = { enable = true },
 			incremental_selection = {
