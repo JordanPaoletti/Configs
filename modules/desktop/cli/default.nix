@@ -18,7 +18,7 @@
     just
     unzip
     httpie
-    nixfmt-rfc-style
+    nixfmt
     # goose-cli
     sesh
 

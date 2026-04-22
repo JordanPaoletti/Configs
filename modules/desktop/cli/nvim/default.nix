@@ -3,6 +3,8 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    withRuby = false;
+    withPython3 = false;
     extraConfig = builtins.readFile ./init.vim;
     initLua = ''
       require('user')
@@ -28,7 +30,7 @@
       clojure-lsp
 
       # formatters / linters
-      nixfmt-rfc-style
+      nixfmt
       prettierd
       stylua
       shfmt
