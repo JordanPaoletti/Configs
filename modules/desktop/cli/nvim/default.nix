@@ -28,6 +28,7 @@
       yaml-language-server
       python313Packages.jedi-language-server
       clojure-lsp
+      jdt-language-server
 
       # formatters / linters
       nixfmt
