@@ -23,6 +23,15 @@ return {
 			dependencies = {
 				"nvim-lua/plenary.nvim",
 			},
+			opts = {
+				defaults = {
+					layout_config = {
+						width = 0.9,
+						preview_width = 0.5,
+					},
+					path_display = { "truncate" },
+				},
+			},
 			keys = {
 				{
 					"<leader>ff",
