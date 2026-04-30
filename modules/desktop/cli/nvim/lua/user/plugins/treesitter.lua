@@ -1,6 +1,14 @@
 -- Treesitter config for Neovim 0.12+
 -- Highlighting and indent are built-in; nvim-treesitter plugin is no longer needed.
 -- We only use the companion plugins (textobjects, context) as standalone.
+
+-- Auto-start treesitter highlighting for all filetypes
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function(args)
+		pcall(vim.treesitter.start, args.buf)
+	end,
+})
+
 return {
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
