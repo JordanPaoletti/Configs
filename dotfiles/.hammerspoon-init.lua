@@ -26,6 +26,11 @@ hs.hotkey.bind(hyper, "x", function() moveWindow({0, 0, 1, 0.5}) end)
 hs.hotkey.bind(hyper, "e", function() moveScreen(1) end)
 hs.hotkey.bind(hyper, "q", function() moveScreen(-1) end)
 
+hs.hotkey.bind(hyper, "h", function() hs.window.focusedWindow():focusWindowWest() end)
+hs.hotkey.bind(hyper, "j", function() hs.window.focusedWindow():focusWindowSouth() end)
+hs.hotkey.bind(hyper, "k", function() hs.window.focusedWindow():focusWindowNorth() end)
+hs.hotkey.bind(hyper, "l", function() hs.window.focusedWindow():focusWindowEast() end)
+
 local function moveToSpace(dir)
     local screen = hs.screen.mainScreen()
     local spaces = hs.spaces.spacesForScreen(screen)
