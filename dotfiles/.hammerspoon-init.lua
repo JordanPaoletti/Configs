@@ -21,6 +21,8 @@ end
 hs.hotkey.bind(hyper, "w", function() moveWindow({0, 0, 1, 1}) end)
 hs.hotkey.bind(hyper, "a", function() moveWindow({0, 0, 0.5, 1}) end)
 hs.hotkey.bind(hyper, "d", function() moveWindow({0.5, 0, 0.5, 1}) end)
+hs.hotkey.bind(hyper, "z", function() moveWindow({0, 0.5, 1, 0.5}) end)
+hs.hotkey.bind(hyper, "x", function() moveWindow({0, 0, 1, 0.5}) end)
 hs.hotkey.bind(hyper, "e", function() moveScreen(1) end)
 hs.hotkey.bind(hyper, "q", function() moveScreen(-1) end)
 
