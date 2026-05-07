@@ -17,6 +17,9 @@ require("nvim-tree").setup({
 	renderer = {
 		group_empty = true,
 	},
+	git = {
+		ignore = false,
+	},
 })
 
 -- https://github.com/HiPhish/rainbow-delimiters.nvim
