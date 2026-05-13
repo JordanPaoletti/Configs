@@ -3,9 +3,11 @@ return {
     {
         "Olical/conjure",
         ft = { "clojure", "fennel" },
-        lazy = false,
         init = function()
-            -- set config options here
+            -- Restrict conjure to clojure/fennel only. Without this, conjure
+            -- may attach clients (e.g. javascript) to buffers opened by other
+            -- plugins like diffview, triggering errors.
+            vim.g["conjure#filetypes"] = { "clojure", "fennel" }
         end,
         -- dependencies = { "PaterJason/cmp-conjure" },
     },

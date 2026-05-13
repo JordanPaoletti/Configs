@@ -121,9 +121,9 @@ set tm=500
 set foldcolumn=0
 
 "coloring and appearence
-color desert
 set background=dark
 syntax on
+set number
 set relativenumber
 
 "file settings
