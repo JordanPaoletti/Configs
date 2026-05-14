@@ -9,6 +9,7 @@
 
     initContent = ''
       bindkey -M viins 'jk' vi-cmd-mode
+      bindkey -M viins '^K' kill-line
 
       if command -v luarocks &> /dev/null; then
         eval "$(luarocks path --bin)"
