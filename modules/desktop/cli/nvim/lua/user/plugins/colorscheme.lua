@@ -14,6 +14,16 @@ return {
 					lsp_trouble = true,
 					aerial = true,
 				},
+				custom_highlights = function(colors)
+					-- Default LineNr is surface1, which is barely visible
+					-- against the base background. Bump to overlay1 for
+					-- legibility without being distracting.
+					return {
+						LineNr = { fg = colors.overlay1 },
+						LineNrAbove = { fg = colors.overlay1 },
+						LineNrBelow = { fg = colors.overlay1 },
+					}
+				end,
 			})
 			-- Catppuccin v2 renamed the colorscheme from `catppuccin` to
 			-- `catppuccin-nvim` to avoid colliding with the built-in
