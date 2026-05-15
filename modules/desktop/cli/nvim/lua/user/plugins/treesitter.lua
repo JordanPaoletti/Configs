@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
 return {
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main", -- new rewrite; required for the move/select/swap submodule API used below
 		lazy = false,
 		config = function()
 			require("nvim-treesitter-textobjects").setup()

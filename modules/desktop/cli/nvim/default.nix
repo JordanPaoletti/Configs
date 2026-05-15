@@ -11,7 +11,6 @@
     '';
 
     plugins = with pkgs.vimPlugins; [
-      lazy-nvim
       # Provides parser .so files for all languages (treesitter highlighting/injection).
       # The nvim-treesitter plugin itself is NOT used — Neovim 0.12 handles highlighting natively.
       nvim-treesitter.withAllGrammars
