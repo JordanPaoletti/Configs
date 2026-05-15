@@ -30,8 +30,8 @@ return {
 			}
 
 			for server, settings in pairs(server_settings) do
-                vim.lsp.config(server, coq)
-				vim.lsp.enable(server, coq.lsp_ensure_capabilities(settings))
+				vim.lsp.config(server, coq.lsp_ensure_capabilities(settings))
+				vim.lsp.enable(server)
 			end
 		end,
 	},
