@@ -7,6 +7,21 @@ return {
 			dependencies = {
 				"nvim-tree/nvim-web-devicons",
 			},
+			opts = {
+				view = {
+					width = {
+						min = 30,
+						max = 100,
+					},
+					adaptive_size = true,
+				},
+				renderer = {
+					group_empty = true,
+				},
+				git = {
+					ignore = false,
+				},
+			},
 			keys = {
 				{
 					"<leader>t",

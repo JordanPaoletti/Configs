@@ -26,23 +26,6 @@ vim.opt.rtp:prepend(lazypath)
 -- plugins
 require("lazy").setup("user.plugins")
 
--- ensure nvim-tree is properly loaded
-require("nvim-tree").setup({
-	view = {
-		width = {
-			min = 30,
-			max = 100,
-		},
-		adaptive_size = true,
-	},
-	renderer = {
-		group_empty = true,
-	},
-	git = {
-		ignore = false,
-	},
-})
-
 -- https://github.com/HiPhish/rainbow-delimiters.nvim
 vim.g.rainbow_delimiters = {
 	strategy = {

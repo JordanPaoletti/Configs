@@ -6,6 +6,7 @@ return {
 	{
 		"mfussenegger/nvim-jdtls",
 		ft = "java",
+		dependencies = { "ms-jpq/coq_nvim" },
 		config = function()
 			local jdtls = require("jdtls")
 			local coq = require("coq")
