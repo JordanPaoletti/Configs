@@ -28,6 +28,10 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # optional modules
+  myAi.enable = true;
+
+
   # Setup Direnv
   programs.direnv = {
     enable = true;
