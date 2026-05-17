@@ -1,8 +1,13 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   options = {
     myAi = {
-      enable = lib.mkEnableOptions "myAi";
+      enable = lib.mkEnableOption "myAi";
     };
   };
 

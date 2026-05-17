@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -6,6 +6,8 @@
     syntaxHighlighting = {
       enable = true;
     };
+
+    dotDir = "${config.xdg.configHome}/zsh";
 
     initContent = ''
       bindkey -M viins 'jk' vi-cmd-mode
