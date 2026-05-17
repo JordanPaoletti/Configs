@@ -29,6 +29,7 @@
     luajitPackages.luarocks
     jdk
     leiningen
+    python3
   ];
 
   home.file = {
