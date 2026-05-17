@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 {
-  imports = [ ];
+  imports = [../../modules/opts];
 
   home.packages = with pkgs; [
     poetry

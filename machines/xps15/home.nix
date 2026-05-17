@@ -3,6 +3,7 @@
   imports = [
     ../../modules/desktop/cli
     ../../modules/desktop/apps
+    ../../modules/opts
   ];
 
   home = {
