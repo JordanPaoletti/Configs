@@ -13,6 +13,11 @@
     plugins = with pkgs.vimPlugins; [
       # Treesitter parser .so files. Neovim 0.12 handles highlighting/indent
       # natively; we only need the parsers on the runtime path.
+      #
+      # nvim-treesitter itself is included for its `queries/` directory only
+      # (e.g. markdown → markdown_inline injection). The plugin code is not
+      # initialized.
+      nvim-treesitter
       nvim-treesitter-parsers.bash
       nvim-treesitter-parsers.c
       nvim-treesitter-parsers.clojure
@@ -27,6 +32,8 @@
       nvim-treesitter-parsers.nix
       nvim-treesitter-parsers.python
       nvim-treesitter-parsers.rust
+      nvim-treesitter-parsers.tsx
+      nvim-treesitter-parsers.typescript
       nvim-treesitter-parsers.yaml
     ];
 
