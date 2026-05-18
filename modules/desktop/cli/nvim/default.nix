@@ -11,9 +11,23 @@
     '';
 
     plugins = with pkgs.vimPlugins; [
-      # Provides parser .so files for all languages (treesitter highlighting/injection).
-      # The nvim-treesitter plugin itself is NOT used — Neovim 0.12 handles highlighting natively.
-      nvim-treesitter.withAllGrammars
+      # Treesitter parser .so files. Neovim 0.12 handles highlighting/indent
+      # natively; we only need the parsers on the runtime path.
+      nvim-treesitter-parsers.bash
+      nvim-treesitter-parsers.c
+      nvim-treesitter-parsers.clojure
+      nvim-treesitter-parsers.cpp
+      nvim-treesitter-parsers.go
+      nvim-treesitter-parsers.java
+      nvim-treesitter-parsers.javascript
+      nvim-treesitter-parsers.json
+      nvim-treesitter-parsers.lua
+      nvim-treesitter-parsers.markdown
+      nvim-treesitter-parsers.markdown_inline
+      nvim-treesitter-parsers.nix
+      nvim-treesitter-parsers.python
+      nvim-treesitter-parsers.rust
+      nvim-treesitter-parsers.yaml
     ];
 
     extraPackages = with pkgs; [
