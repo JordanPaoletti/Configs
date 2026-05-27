@@ -19,10 +19,10 @@
     unzip
     httpie
     nixfmt
-    # goose-cli
     sesh
 
     # More dev related
+    delta
     bun
     nodejs
     luajit
