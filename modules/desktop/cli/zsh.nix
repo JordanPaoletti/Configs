@@ -35,6 +35,10 @@
       bindkey -M vicmd '\es' sesh-sessions
       bindkey -M viins '\es' sesh-sessions
 
+      # Rebind fzf cd widget from ALT-C to CTRL-F
+      bindkey -r '\ec'
+      bindkey '^F' fzf-cd-widget
+
       # easily invoke a shell with a package from nixpkgs
       function nshell () { nix shell nixpkgs#$1 }
     '';
