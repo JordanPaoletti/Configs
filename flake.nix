@@ -98,6 +98,13 @@
             catppuccin.homeModules.catppuccin
           ];
         };
+        "jordan@air" = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgsSource "aarch64-darwin";
+          modules = [
+            ./machines/air/home.nix
+            catppuccin.homeModules.catppuccin
+          ];
+        };
         "paoletjo@80a9973215b3" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsSource "aarch64-darwin";
           modules = [
