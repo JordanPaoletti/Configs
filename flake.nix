@@ -2,12 +2,18 @@
   description = "Home Manager configuration of jordan";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
+    # Nix
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Misc
     catppuccin.url = "github:catppuccin/nix";
     musnix = {
       url = "github:musnix/musnix";
@@ -17,6 +23,7 @@
   outputs =
     {
       nixpkgs,
+      nix-darwin,
       home-manager,
       catppuccin,
       ...
@@ -67,6 +74,17 @@
           ];
         };
 
+      };
+
+      darwinConfigurations = {
+        air = nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./machines/air/configuration.nix
+          ];
+        };
       };
 
       homeConfigurations = {
