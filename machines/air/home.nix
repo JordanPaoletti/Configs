@@ -15,6 +15,9 @@
   };
 
   programs.zsh = {
+    shellAliases = {
+      nds = "sudo darwin-rebuild switch --flake ~/.config/home-manager";
+    };
     envExtra = ''
       export PATH="/Users/$USER/.local/bin:$PATH"
       export PATH="/Users/$USER/.toolbox/bin:$PATH"
