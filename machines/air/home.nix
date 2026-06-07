@@ -38,6 +38,7 @@
   };
 
   home.packages = with pkgs; [
+    # system
     nerd-fonts.jetbrains-mono
   ];
 

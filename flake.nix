@@ -18,6 +18,7 @@
     musnix = {
       url = "github:musnix/musnix";
     };
+    mac-app-util.url = "github:hraban/mac-app-util";
   };
 
   outputs =
@@ -26,6 +27,7 @@
       nix-darwin,
       home-manager,
       catppuccin,
+      mac-app-util,
       ...
     }@inputs:
     let
@@ -83,6 +85,7 @@
           };
           modules = [
             ./machines/air/configuration.nix
+            mac-app-util.darwinModules.default
           ];
         };
       };
@@ -121,6 +124,7 @@
           modules = [
             ./machines/air/home.nix
             catppuccin.homeModules.catppuccin
+            mac-app-util.homeManagerModules.default
           ];
         };
         "paoletjo@80a9973215b3" = home-manager.lib.homeManagerConfiguration {
