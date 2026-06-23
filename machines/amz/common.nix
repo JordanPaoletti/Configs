@@ -7,7 +7,7 @@
     uv
     ruby_3_4
     python3
-    pipx
+    (pipx.overridePythonAttrs { doCheck = false; })
   ];
 
   programs.git = {

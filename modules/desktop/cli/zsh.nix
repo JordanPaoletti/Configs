@@ -97,8 +97,4 @@
     };
   };
 
-  catppuccin = {
-    starship.enable = true;
-    zsh-syntax-highlighting.enable = true;
-  };
 }
