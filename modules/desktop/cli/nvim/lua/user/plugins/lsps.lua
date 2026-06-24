@@ -12,15 +12,10 @@ return {
             { "ms-jpq/coq.artifacts", branch = "artifacts" }, -- snippets
         },
         init = function()
-            vim.g.coq_settings = {
-                auto_start = 'shut-up',
-                keymap = {
-                    jump_to_mark = "<c-m>"
-                },
-            }
+            vim.g.coq_settings = {}
+            vim.keymap.set({'i','s'}, '<c-m>', function() vim.snippet.jump(1) end)
         end,
 		config = function()
-            local coq = require("coq")
 			local server_settings = {
 				lua_ls = {},
 				nil_ls = {},
@@ -30,7 +25,7 @@ return {
 			}
 
 			for server, settings in pairs(server_settings) do
-				vim.lsp.config(server, coq.lsp_ensure_capabilities(settings))
+				vim.lsp.config(server, settings)
 				vim.lsp.enable(server)
 			end
 		end,

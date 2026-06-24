@@ -9,8 +9,6 @@ return {
 		dependencies = { "ms-jpq/coq_nvim" },
 		config = function()
 			local jdtls = require("jdtls")
-			local coq = require("coq")
-
 			local root_dir = require("jdtls.setup").find_root({ "packageInfo", ".git", "pom.xml", "build.gradle" }, "Config")
 			local home = os.getenv("HOME")
 			local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
@@ -28,13 +26,13 @@ return {
 				end
 			end
 
-			jdtls.start_or_attach(coq.lsp_ensure_capabilities({
+			jdtls.start_or_attach({
 				cmd = { "jdtls", "-data", workspace_dir },
 				root_dir = root_dir,
 				init_options = {
 					workspaceFolders = ws_folders,
 				},
-			}))
+			})
 		end,
 	},
 }
