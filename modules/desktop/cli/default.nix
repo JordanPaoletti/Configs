@@ -22,7 +22,6 @@
     sesh
 
     # More dev related
-    delta
     bun
     nodejs
     luajit

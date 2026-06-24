@@ -19,6 +19,17 @@
       pull = {
         rebase = true;
       };
+      merge = {
+        conflictstyle = "diff3";
+      };
+    };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
     };
   };
 
