@@ -12,7 +12,12 @@ return {
             { "ms-jpq/coq.artifacts", branch = "artifacts" }, -- snippets
         },
         init = function()
-            vim.g.coq_settings = {}
+            vim.g.coq_settings = {
+                clients = {
+                    -- rank path completions above buffer words / snippets
+                    paths = { weight_adjust = 2.0 },
+                },
+            }
             vim.keymap.set({'i','s'}, '<c-m>', function() vim.snippet.jump(1) end)
         end,
 		config = function()
