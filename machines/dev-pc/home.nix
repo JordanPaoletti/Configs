@@ -31,7 +31,6 @@
   # optional modules
   myAi.enable = true;
 
-
   # Setup Direnv
   programs.direnv = {
     enable = true;
