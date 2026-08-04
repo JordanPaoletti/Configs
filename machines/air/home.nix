@@ -4,6 +4,7 @@
   imports = [
     ../../modules/desktop/cli
     ../../modules/lib
+    ../../modules/opts
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -45,6 +46,9 @@
     rustc
     cargo
   ];
+
+  # Optional Modules
+  myAi.enable = true;
 
   catppuccin = {
     enable = true;
