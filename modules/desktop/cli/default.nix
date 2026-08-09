@@ -8,6 +8,13 @@
     ./tmux.nix
   ];
 
+  # catppuccin/nix now requires autoEnable to be set explicitly to theme
+  # installed programs automatically.
+  catppuccin = {
+    enable = true;
+    autoEnable = true;
+  };
+
   home.packages = with pkgs; [
     # cli apps
     xclip
