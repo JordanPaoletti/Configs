@@ -2,18 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{
-  musnix,
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/nixos/intellij-dlls.nix
+    ../../modules/nixos/audio-pro.nix
   ];
 
   nix.settings.experimental-features = [
@@ -71,39 +67,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Sound Configuration
-
-  # musnix.enable = true;
-
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # jack.enable = true;
-
-    # wireplumber = {
-    #   enable = true;
-    #   package = pkgs.wireplumber;
-    # };
-  };
-
-  # List packages installed in system profile. To search, run:
-  environment.systemPackages = with pkgs; [
-
-    # audio related
-    # libjack2
-    # jack2
-    # qjackctl
-    # pavucontrol
-    # jack_capture
-    # alsa-scarlett-gui
-
-    # Apps
-    # ardour
-  ];
+  # Sound: PipeWire pro-audio + JACK + musnix realtime tuning.
+  # See modules/nixos/audio-pro.nix. DAW apps live in modules/opts/audio.nix.
+  myAudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -115,6 +81,8 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      # musnix writes its memlock/rtprio PAM limits against @audio
+      "audio"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [

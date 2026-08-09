@@ -12,6 +12,10 @@
     flakePath = "/home/jordan/.config/home-manager";
   };
 
+  # Ardour, alsa-scarlett-gui, plugins, scarlett-mode.
+  # System side lives in modules/nixos/audio-pro.nix.
+  myDaw.enable = true;
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
 
