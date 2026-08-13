@@ -32,7 +32,7 @@
       edbb = "eda build brazil-build";
       edbbc = "eda build brazil-build clean";
       kk = "kiro-cli --classic";
-      cc = "claude --mcp-config ~/.ai/claude/mcp.json";
+      cc = "claude --settings ~/.ai/claude/settings.portable.json --mcp-config ~/.ai/claude/mcp.json";
     };
   };
 }
