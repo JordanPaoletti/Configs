@@ -83,6 +83,11 @@
             matches = [ { "device.name" = config.myAudio.cardMatch; } ];
             actions.update-props = {
               "device.profile" = "pro-audio";
+              # device.profile only sets the *initial* profile at device
+              # discovery; WirePlumber's ACP policy then re-evaluates and
+              # picks its own preferred profile (HiFi, in practice) unless
+              # this is disabled. See docs/scarlett-18i20-troubleshooting.md.
+              "api.acp.auto-profile" = false;
               "api.alsa.period-size" = config.myAudio.quantum;
               "api.alsa.headroom" = config.myAudio.headroom;
             };
