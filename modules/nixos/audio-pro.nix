@@ -42,6 +42,33 @@
         default = 0;
         description = "Extra ALSA buffer headroom in frames. Raise if you hear xruns.";
       };
+
+      headphoneNode = lib.mkOption {
+        type = lib.types.str;
+        default = "alsa_output.usb-Focusrite_Scarlett_18i20_USB_P98A3KP180A95F-00.pro-output-0";
+        description = ''
+          PipeWire node name of the interface's pro-audio playback device.
+          Loopback target for the "Desktop Audio" sink below, so ordinary
+          apps get a friendly output even though pro-audio mode itself only
+          exposes raw numbered ports. Find it with `pw-dump | grep
+          pro-output` while the card is in pro-audio profile.
+        '';
+      };
+
+      headphonePorts = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [
+          "AUX6"
+          "AUX7"
+        ];
+        description = ''
+          Raw port names (audio.channel) on headphoneNode that the hardware
+          router patches through to the physical headphone jack — see
+          machines/music/docs/scarlett-18i20-routing.md. Confirm with
+          `pw-dump | grep playback_AUX` while in pro-audio profile; changes
+          if the router's PCM-to-jack patch is ever repatched.
+        '';
+      };
     };
   };
 
@@ -75,6 +102,37 @@
         };
       };
 
+      # Ordinary desktop apps still work fine against the raw pro-audio
+      # node, but with no UCM device names PipeWire has no idea which
+      # channels are "headphones" and defaults new stereo streams to
+      # channels 1-2. This loopback gives them a friendly, fixed sink
+      # wired to the actual headphone-jack channels instead. Ardour/JACK
+      # clients are unaffected — they patch the raw node directly.
+      extraConfig.pipewire."93-desktop-audio-loopback" = {
+        "context.modules" = [
+          {
+            name = "libpipewire-module-loopback";
+            args = {
+              "node.description" = "Desktop Audio (Scarlett Headphones)";
+              "capture.props" = {
+                "node.name" = "desktop-audio-headphones";
+                "media.class" = "Audio/Sink";
+                "audio.position" = [
+                  "FL"
+                  "FR"
+                ];
+              };
+              "playback.props" = {
+                "node.name" = "desktop-audio-headphones.playback";
+                "node.target" = config.myAudio.headphoneNode;
+                "audio.position" = config.myAudio.headphonePorts;
+                "stream.dont-remix" = true;
+              };
+            };
+          }
+        ];
+      };
+
       # Expose every hardware channel as its own port instead of letting ACP
       # guess a consumer stereo/surround layout.
       wireplumber.extraConfig."51-pro-audio-interface" = {
@@ -83,16 +141,21 @@
             matches = [ { "device.name" = config.myAudio.cardMatch; } ];
             actions.update-props = {
               "device.profile" = "pro-audio";
-              # device.profile only sets the *initial* profile at device
-              # discovery; WirePlumber's ACP policy then re-evaluates and
-              # picks its own preferred profile (HiFi, in practice) unless
-              # this is disabled. See docs/scarlett-18i20-troubleshooting.md.
-              "api.acp.auto-profile" = false;
               "api.alsa.period-size" = config.myAudio.quantum;
               "api.alsa.headroom" = config.myAudio.headroom;
             };
           }
         ];
+        # device.profile above only sets the profile WirePlumber tries on
+        # first-ever discovery. After that, WirePlumber persists whatever
+        # profile was last active per device.name and restores it on every
+        # boot BEFORE re-evaluating device.profile, permanently pinning
+        # this card to whatever it last happened to be switched to (HiFi,
+        # in practice). Disabling restore is what actually makes pro-audio
+        # stick. See docs/scarlett-18i20-troubleshooting.md.
+        "wireplumber.settings" = {
+          "device.restore-profile" = false;
+        };
       };
     };
   };

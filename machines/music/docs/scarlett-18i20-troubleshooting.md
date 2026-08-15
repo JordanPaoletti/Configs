@@ -64,28 +64,55 @@ sinks at all, only raw numbered ports meant for a patchbay/DAW.
 
 > **Resolved (2026-08-15):** `audio-pro.nix`'s WirePlumber rule set
 > `device.profile = "pro-audio"`, but the card kept coming up on `HiFi`
-> anyway, with no errors logged anywhere. Per WirePlumber's ALSA config
-> docs, `device.profile` in a `monitor.alsa.rules` action only sets the
-> *initial* profile at device discovery — WirePlumber's own ACP policy
-> engine then re-evaluates and picks its preferred profile (`HiFi`, in this
-> case) afterward, silently overriding it. This is why manually running
-> `wpctl set-profile` (or `scarlett-mode pro`) always worked fine — nothing
-> re-evaluates the profile after that point — while the automatic rule
-> never stuck.
+> anyway, with no errors logged anywhere.
 >
-> **Fix:** added `api.acp.auto-profile = false` alongside `device.profile`
-> in the same rule's `update-props`, disabling the policy engine's
-> after-the-fact override for this device. Requires
-> `sudo nixos-rebuild switch` and either a reboot or a USB replug of the
-> interface to take effect (WirePlumber only evaluates `monitor.alsa.rules`
-> at device discovery time, not on config reload).
+> First (wrong) lead: `device.profile` looked like it should be getting
+> silently overridden by WirePlumber's own auto-profile policy, so
+> `api.acp.auto-profile = false` was added alongside it. Dead end — reading
+> WirePlumber's own `alsa.lua` source showed `api.acp.auto-profile = false`
+> is already the built-in default, set before any rule runs. Not the cause.
+>
+> Actual root cause, found by reading WirePlumber's `device/*.lua` policy
+> scripts directly: WirePlumber persists the last-active profile per device
+> (`state-profile.lua`, keyed by `device.name`, saved to a state file every
+> time any client — GNOME, `scarlett-mode`, anything — sets a profile via
+> the standard `Profile` param with `save: true`). A `find-stored-profile`
+> hook runs *before* the hook that reads our `device.profile` rule and
+> short-circuits the whole selection chain if a stored profile exists — so
+> once the card had ever been on `HiFi`, it stayed pinned there on every
+> future boot regardless of the rule. This is also why manual
+> `wpctl set-profile`/`scarlett-mode pro` always worked: nothing
+> re-evaluates the profile after a manual set, so it just stuck until the
+> next reboot re-ran the (broken) automatic selection.
+>
+> **Decision:** this machine is single-purpose for music production, so
+> `pro-audio` was made the permanent, unconditional default rather than
+> something toggled per-session. **Fix:** added
+> `wireplumber.settings.device.restore-profile = false` (global — disables
+> WirePlumber's profile-memory for *all* devices on this machine, not just
+> the Scarlett; acceptable here since no other device on this box has more
+> than one meaningful profile). Requires `sudo nixos-rebuild switch` and a
+> reboot or USB replug to take effect (`monitor.alsa.rules` is only
+> evaluated at device discovery, not on config reload).
+>
+> **Trade-off this reopens:** `pro-audio` mode has no "Headphones 1" sink —
+> it only exposes 20 raw numbered ports, so forcing it permanently would
+> otherwise re-break the headphone listening fix from earlier in this doc.
+> Fixed by adding a `libpipewire-module-loopback` (`93-desktop-audio-
+> loopback` in `audio-pro.nix`) that creates a permanent "Desktop Audio
+> (Scarlett Headphones)" sink for ordinary apps, hard-wired to the raw
+> node's `playback_AUX6`/`playback_AUX7` ports — the same channels the
+> router patches to the physical headphone jack. Ardour/JACK clients are
+> unaffected; they patch the raw pro-audio node directly via `qpwgraph`.
+> See [scarlett-18i20-routing.md](./scarlett-18i20-routing.md) for the raw
+> port-name reference.
 >
 > A WirePlumber lua error (`alsa.lua:398: attempt to concatenate a nil
 > value`, in the SplitPCM HW node error-logging path) was also observed
 > once in the journal ~3 min after service start, coinciding with initial
 > device enumeration. It did not reproduce on manual profile switches and
-> did not block this fix — worth another look only if node creation starts
-> failing outright.
+> was unrelated to this bug — worth another look only if node creation
+> starts failing outright.
 
 Switch profiles manually if needed:
 

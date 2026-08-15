@@ -103,3 +103,35 @@ simultaneously without conflict.
 This is what was missing on 2026-08-15 — PCM 7-10 were dangling
 (unconnected), while Analogue 7-10 were only fed from empty Mixer channels
 C-F, producing silence despite a correctly-selected, unmuted PipeWire sink.
+
+## Raw port names under the `pro-audio` UCM profile
+
+`pro-audio` mode (see `myAudio.enable` in `modules/nixos/audio-pro.nix`)
+skips UCM's named splits entirely and exposes one node with all 20
+playback / 18 capture channels as raw, 0-indexed `AUX*` ports:
+
+```
+alsa_output.usb-Focusrite_Scarlett_18i20_USB_<serial>-00.pro-output-0
+  playback_AUX0 ... playback_AUX19
+alsa_input.usb-Focusrite_Scarlett_18i20_USB_<serial>-00.pro-input-0
+  capture_AUX0 ... capture_AUX17
+```
+
+`AUXn` is 0-indexed and lines up with the UCM channel numbers from the
+table above (1-indexed) minus one — e.g. `playback_AUX6`/`playback_AUX7`
+are PCM channels 7-8, the Headphones 1 pair. Confirm on a live system with:
+
+```shell
+scarlett-mode pro
+pw-dump | grep pro-output   # find the node name
+pw-dump | grep playback_AUX # list its raw ports
+```
+
+Because raw ports have no "headphones" naming, ordinary desktop apps get no
+friendly output in this profile — `audio-pro.nix` compensates with a
+`libpipewire-module-loopback` (`93-desktop-audio-loopback`) that creates a
+fixed "Desktop Audio (Scarlett Headphones)" sink wired to
+`config.myAudio.headphonePorts` (`playback_AUX6`/`playback_AUX7` by
+default). If the hardware router is ever repatched to feed the headphone
+jack from different Analogue Output channels, update `myAudio.headphonePorts`
+to match.
