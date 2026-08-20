@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -14,6 +14,8 @@
     homeDirectory = "/Users/paoletjo";
     flakePath = "/Users/paoletjo/.config/home-manager";
   };
+
+  home.packages = with pkgs; [ mutagen ];
 
   programs.zsh = {
     envExtra = ''
