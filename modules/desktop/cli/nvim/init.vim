@@ -59,6 +59,7 @@ nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>y "+y
 vnoremap <leader>p "+p
+nnoremap <leader>i GzzA
 
 
 """""""""""""""""""""""""""""""""""""""""
