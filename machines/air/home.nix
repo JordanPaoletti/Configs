@@ -23,6 +23,7 @@
       export PATH="/Users/$USER/.local/bin:$PATH"
       export PATH="/Users/$USER/.toolbox/bin:$PATH"
       export PATH="/Users/$USER/dev/scripts/shell:$PATH"
+      export PATH="/opt/homebrew/bin:$PATH"
       export DOCKER_HOST=unix:///Applications/Finch/lima/data/finch/sock/finch.sock
     '';
 
