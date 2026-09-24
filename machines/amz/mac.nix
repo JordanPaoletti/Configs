@@ -15,7 +15,10 @@
     flakePath = "/Users/paoletjo/.config/home-manager";
   };
 
-  home.packages = with pkgs; [ mutagen ];
+  home.packages = with pkgs; [
+    mutagen
+    autossh
+  ];
 
   programs.zsh = {
     envExtra = ''
