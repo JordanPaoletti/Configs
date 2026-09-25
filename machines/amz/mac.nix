@@ -42,6 +42,25 @@
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
       [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+      # When a connection drops, the remote app never turns off the terminal
+      # modes it set, so turn them off here. Exit code 255 means ssh itself failed.
+      function ssh() {
+        command ssh "$@"
+        local rc=$?
+        if [[ -t 1 ]]; then
+          # mouse reporting, focus events, bracketed paste, synchronized output
+          printf '\e[?1000l\e[?1002l\e[?1003l\e[?1005l\e[?1006l\e[?1015l\e[?1016l'
+          printf '\e[?1004l\e[?2004l\e[?2026l'
+          # keyboard: app cursor keys, app keypad, kitty protocol, modifyOtherKeys
+          printf '\e[?1l\e>\e[<99u\e[>4;0m'
+          # visible default cursor, plain text attributes
+          printf '\e[?25h\e[0 q\e[0m'
+          # leave the alternate screen (tmux, vim) so scrollback works again
+          (( rc == 255 )) && printf '\e[?1049l'
+        fi
+        return $rc
+      }
+
     '';
 
   };
