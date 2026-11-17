@@ -19,6 +19,10 @@
       export PATH="/home/$USER/.local/bin:$PATH"
       export PATH="/home/$USER/.toolbox/bin:$PATH"
       export PATH="/home/$USER/dev/scripts/shell:$PATH"
+
+      # mosh-server sets TERM=xterm-256color and ignores nvim's and tmux's
+      # truecolor queries. Both read COLORTERM instead.
+      export COLORTERM=truecolor
     '';
 
     initContent = ''
