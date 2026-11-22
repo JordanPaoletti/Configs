@@ -56,6 +56,8 @@
       set -g detach-on-destroy off # don't exit from tmux when closing a session
 
       run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
+
+      set -g window-status-current-style default
     '';
 
     plugins = with pkgs.tmuxPlugins; [
