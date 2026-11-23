@@ -1,3 +1,6 @@
+-- Load other config
+require("user.bindings")
+
 -- disable netrw for file tree plugin
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
