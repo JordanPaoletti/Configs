@@ -5,7 +5,7 @@
     ./git.nix
     ./zsh.nix
     ./nvim
-    ./tmux.nix
+    ./tmux
   ];
 
   # catppuccin/nix now requires autoEnable to be set explicitly to theme

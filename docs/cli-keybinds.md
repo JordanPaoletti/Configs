@@ -10,3 +10,17 @@ Documenting keybindings setup via this config
 * `**<tab>` - fuzzy completion (context aware)
 
 
+
+## tmux
+
+Prefix is `CTRL-V`.
+
+* `prefix t` - sesh session picker
+* `prefix f` - fuzzy-find a window in any session and jump to it (most recently used first)
+  * `CTRL-X` - kill the selected window
+  * `CTRL-R` - rename the selected window
+
+## zsh
+
+* `ALT-S` - sesh session picker
+* `ALT-W` - tmux window picker (attaches to the window when run outside tmux)

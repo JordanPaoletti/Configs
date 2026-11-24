@@ -35,6 +35,21 @@
       bindkey -M vicmd '\es' sesh-sessions
       bindkey -M viins '\es' sesh-sessions
 
+      # jump to any tmux window across sessions (attaches when outside tmux)
+      function tmux-windows() {
+        {
+          exec </dev/tty
+          exec <&1
+          tmux-window-picker
+          zle reset-prompt > /dev/null 2>&1 || true
+        }
+      }
+
+      zle     -N             tmux-windows
+      bindkey -M emacs '\ew' tmux-windows
+      bindkey -M vicmd '\ew' tmux-windows
+      bindkey -M viins '\ew' tmux-windows
+
       # Rebind fzf cd widget from ALT-C to CTRL-F
       bindkey -r '\ec'
       bindkey '^F' fzf-cd-widget

@@ -1,7 +1,26 @@
-{ config, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  tmux-window-picker = pkgs.writeShellApplication {
+    name = "tmux-window-picker";
+    runtimeInputs = [
+      config.programs.tmux.package
+      config.programs.fzf.package
+      pkgs.coreutils
+      pkgs.gawk
+    ];
+    text = builtins.readFile ./window-picker.sh;
+  };
+in
+{
+  home.packages = [ tmux-window-picker ];
+
   xdg.configFile."tmux/user.conf".source =
-    config.lib.file.mkFlakeSymlink ../../../dotfiles/.tmux.conf;
+    config.lib.file.mkFlakeSymlink ../../../../dotfiles/.tmux.conf;
 
   programs.tmux = {
     enable = true;
@@ -52,6 +71,8 @@
           --preview-window 'right:55%' \
           --preview 'sesh preview {}'
       )\""
+
+      bind-key f run-shell -b "${lib.getExe tmux-window-picker}"
 
       set -g detach-on-destroy off # don't exit from tmux when closing a session
 
