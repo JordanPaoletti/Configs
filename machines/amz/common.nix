@@ -8,8 +8,16 @@
     ruby_3_4
     python3
     go
+    rustc
+    cargo
+    clippy
+    rustfmt
+    rust-analyzer
     (pipx.overridePythonAttrs { doCheck = false; })
   ];
+
+  # rust-analyzer needs the std source, which nixpkgs ships separately
+  home.sessionVariables.RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
 
   programs.git = {
     enable = true;
